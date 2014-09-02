@@ -9,6 +9,10 @@ Template.listsShow.helpers({
   
   todos: function() {
     return Todos.find({listId: this._id});
+  },
+  
+  checkedClass: function() {
+    return this.checked && 'checked';
   }
 });
 
@@ -40,5 +44,20 @@ Template.listsShow.events({
       else
         Lists.update(this._id, {$set: {userId: Meteor.userId()}});
     }
+  },
+  
+  'submit [name=new-todo-form]': function(e, template) {
+    e.preventDefault();
+    
+    Todos.insert({
+      listId: this._id, 
+      text: template.$('[name=text]').val(),
+      checked: false
+    });
+    template.$('[name=text]').val('');
+  },
+  
+  'change [name=checked]': function(e) {
+    Todos.update(this._id, {$set: {checked: $(e.target).is(':checked')}});
   }
 });

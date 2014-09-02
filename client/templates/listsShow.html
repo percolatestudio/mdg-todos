@@ -23,8 +23,17 @@
   {{/if}}
   
   <ul>
+    <li>
+      <form name="new-todo-form">
+        <span class="icon-plus"></span>
+        <input name="text" placeholder="Add Item">
+      </form>
+    </li>
     {{#each todos}}
-      <li>{{text}}</li>
+      <li class="{{checkedClass}}">
+        <input type="checkbox" checked="{{checked}}" name="checked">
+        {{text}}
+      </li>
     {{/each}}
   </ul>
 </template>
