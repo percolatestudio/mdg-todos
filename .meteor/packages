@@ -6,3 +6,5 @@
 standard-app-packages
 insecure
 iron:router
+accounts-password
+

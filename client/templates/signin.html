@@ -1,0 +1,13 @@
+<template name="signin">
+  <h1>Sign In</h1>
+  <p>Signing in allows you to view private lists</p>
+  
+  <form>
+    <input type="email" name="email" placeholder="Your Email" />
+    <input type="password" name="password" placeholder="Password" />
+    
+    <button type="submit">Sign In</button>
+  </form>
+  
+  <a href="{{pathFor 'join'}}">Need an account? Join Now.</a>
+</template>

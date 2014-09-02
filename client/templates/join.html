@@ -1,0 +1,14 @@
+<template name="join">
+  <h1>Join</h1>
+  <p>Joining allows you to make private lists</p>
+  
+  <form>
+    <input type="email" name="email" placeholder="Your Email" />
+    <input type="password" name="password" placeholder="Password" />
+    <input type="password" name="confirm" placeholder="Confirm Password" />
+    
+    <button type="submit">Join Now</button>
+  </form>
+  
+  <a href="{{pathFor 'signin'}}">Have an account? Sign in</a>
+</template>

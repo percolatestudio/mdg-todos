@@ -2,7 +2,7 @@
   <div id="container" class="{{menuOpen}}">
     <section id="menu">
       {{#if currentUser}}
-        <div data-user-menu>{{currentUser.email.address}}</div>
+        <div data-user-menu>{{email}}</div>
         {{#if userMenuOpen}}
           <a data-logout>Logout</a>
         {{/if}}

@@ -8,8 +8,11 @@ Template.body.helpers({
   menuOpen: function() {
     return Session.get(MENU_KEY) && 'menu-open';
   },
+  email: function() {
+    return Meteor.user().emails[0].address;
+  },
   userMenuOpen: function() {
-    return Sesson.get(USER_MENU_KEY);
+    return Session.get(USER_MENU_KEY);
   },
   lists: function() {
     return Lists.find();
