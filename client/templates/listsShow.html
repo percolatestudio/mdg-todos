@@ -1,5 +1,27 @@
 <template name="listsShow">
-  <h1>{{name}}</h1>
+  {{#if editing}}
+    <form name="edit-list-form">
+      <span class="icon-pen"></span>
+      <input type="text" name="name" value="{{name}}">
+      <span class="icon-cross" data-cancel>CANCEL</span>
+    </form>
+  {{else}}
+    <a data-menu>MENU</a>
+    <h1>{{name}} ({{todos.count}})</h1>
+    <select name="edit-list">
+      <option>Cog</option>
+      <option value="edit">Edit</option>
+      <option value="delete">Delete</option>
+      {{#if currentUser}}
+        {{#if userId}}
+          <option value="public">Public</option>
+        {{else}}
+          <option value="private">Private</option>
+        {{/if}}
+      {{/if}}
+    </select>
+  {{/if}}
+  
   <ul>
     {{#each todos}}
       <li>{{text}}</li>
