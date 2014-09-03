@@ -1,4 +1,4 @@
-@menu-width: 45%;
+@menu-width: 85%;
 
 body {
   background: @color-well;
@@ -21,6 +21,7 @@ body {
   .transition(all 200ms ease-out);
   .transform(translate3d(0, 0, 0));
   background: green;
+  opacity: 1;
 
   .content-scrollable {
     .position(absolute, 0, 0, 0, 0);
@@ -32,6 +33,7 @@ body {
 
   .menu-open & {
     .transform(translate3d(@menu-width, 0, 0));
+    opacity: .85;
   }
 
   [data-momentum] > div.page {
