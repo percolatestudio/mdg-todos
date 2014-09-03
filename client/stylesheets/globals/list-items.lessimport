@@ -1,34 +1,54 @@
-.list-items {
-  .list-item {
-    .font-s2;
-    height: 3rem;
+.list-items .list-item {
+  .font-s2;
+  & + .list-item { border-top: 1px solid #f0f9fb; }
 
-    & + .list-item { border-top: 1px solid #f0f9fb; }
+  // layout of list-item contents
+  .display(flex);
+  .flex-wrap(wrap);
+  height: 3rem;
+  width: 100%;
+  .checkbox { .flex(0, 0, 44px); }
+  .icon-edit { .flex(0, 0, 44px); }
+  input[type="text"] { .flex(1); }
+  [data-delete-item] { .flex(0, 0, 3rem); }
 
 
-    .display(flex);
-    .flex-wrap(wrap);
-    width: 100%;
+  //style of list-item contents
+  input[type="text"] {
+    cursor: pointer;
+    &:focus { cursor: text; }
+  }
 
-    .checkbox { .flex(0, 0, 44px); }
-    input[type="text"] { .flex(1); }
-    [data-delete-item] { .flex(0, 0, 3rem); }
+  [data-delete-item] {
+    color: @color-medium-rare;
+    line-height: 3rem;
+    text-align: center;
+    &:hover { color: @color-primary; }
+    &:active { color: @color-well; }
+  }
 
-    [data-delete-item] {
-      text-align: center;
-      line-height: 3rem;
+  .icon-edit {
+    text-align: center;
+    line-height: 3rem;
+    color: @color-primary;
+  }
+
+  // Checked
+  &.checked {
+    input[type="text"] {
+      color: @color-medium-rare;
+      text-decoration: line-through;
     }
+    [data-delete-item] { display: inline-block; }
+  }
 
-    &.checked {
-      input[type="text"] {
-        color: @color-medium-rare;
-        text-decoration: line-through;
-      }
-    }
+  // Editing
+  .icon-edit { display: none; }
+  [data-delete-item] { display: none; }
 
-    // Toggle the delete button when a list item is being edited
-    //todo: change toggle class to .editing instead of .checked
-    [data-delete-item] { display: none; }
-    &.checked [data-delete-item] { display: inline-block; }
+  &.editing {
+    .checkbox { display: none; }
+    .icon-edit { display: inline-block; }
+    [data-delete-item] { display: inline-block; }
   }
 }

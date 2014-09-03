@@ -1,7 +1,7 @@
 <template name="listsShow">
   <div class="page lists-show">
     {{#if editing}}
-      <form name="edit-list-form">
+      <form class="edit-list-form">
         <span class="icon-pen"></span>
         <input type="text" name="name" value="{{name}}">
         <span class="icon-cross" data-cancel>CANCEL</span>
@@ -11,32 +11,36 @@
         <div class="nav-group">
           <a data-menu href="#" class="nav-item"><span class="icon-list-unordered"></span></a>
         </div>
-        <h1 class="title-page">{{name}} <span class="count-list">{{todos.count}}</span></h1>
+
+        <h1 class="title-page"><span class="title-wrapper">{{name}}</span> <span class="count-list">{{todos.count}}</span></h1>
 
         <div class="nav-group right">
-          <a href="#" class="nav-item"><span class="icon-cog"></span></a>
-          <select name="edit-list mobile-only">
-            <option value="edit">Edit</option>
-            <option value="delete">Delete</option>
-            {{#if currentUser}}
-              {{#if userId}}
-                <option value="public">Public</option>
-              {{else}}
-                <option value="private">Private</option>
-              {{/if}}
-            {{/if}}
-          </select>
 
-          <div class="desktop-only">
-            <a href="#" class="nav-item"><span class="icon-edit"></span></a>
-            <a href="#" class="nav-item"><span class="icon-lock"></span></a>
-            <a href="#" class="nav-item"><span class="icon-trash"></span></a>
+          <div class="nav-item mobile-only">
+            <select class="edit-list">
+              <option value="edit">Edit</option>
+              <option value="delete">Delete</option>
+              {{#if currentUser}}
+                {{#if userId}}
+                  <option value="public">Public</option>
+                {{else}}
+                  <option value="private">Private</option>
+                {{/if}}
+              {{/if}}
+            </select>
+            <span class="icon-cog"></span>
+            <div class="desktop-only">
+              <a href="#" class="nav-item"><span class="icon-edit"></span></a>
+              <a href="#" class="nav-item"><span class="icon-lock"></span></a>
+              <a href="#" class="nav-item"><span class="icon-trash"></span></a>
+            </div>
           </div>
+
         </div>
 
         <form name="new-todo-form" class="input-symbol">
-          <span class="icon-plus"></span>
           <input type="text" placeholder="Add Item">
+          <span class="icon-add"></span>
         </form>
       </nav>
     {{/if}}
@@ -49,14 +53,14 @@
         		<span class="checkbox-custom"></span>
     	  	</label>
 
+          <span class="icon-edit"></span>
+
           <input type="text" value="{{text}}" placeholder="Task name">
           <a data-delete-item href="#"><span class="icon-trash"></span></a>
         </div>
       {{else}}
           <div class="wrapper-message">
-            <div class="title-message">No favorites yet</div>
-            <div class="subtitle-message">Tap on the <span class="icon-heart-hollow"></span> to save your favorite recipes. <a href="{{pathFor 'home'}}">Return home</a></div>
-
+            <div class="title-message">You have no todos</div>
           </div>
       {{/each}}
     </div>
