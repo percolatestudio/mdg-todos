@@ -1,28 +1,75 @@
 // standard text input
 input[type="text"],
 textarea {
-  .placeholder(@color-medium);
+  .placeholder(@color-complementary);
 
   //input sizing
-  font-size: 1rem;
-  padding: .75em 0; //total height ~48
-  line-height: 1.5em !important;
+  .font-s2;
+  padding: .75rem 0; //total height ~48
+  line-height: 1.5rem !important;
 
   //input style
   background: transparent;
   border: none;
-  border-bottom: 1px solid rgba(0,0,0,.1);
   border-radius: 0;
   box-sizing: border-box;
+  color: @color-full;
   outline: none;
 
   &:active,
   &:focus {
-    border-bottom: 1px solid rgba(0,0,0,.3);
+
   }
 
   &[disabled] { opacity: .5; }
 }
+
+// custom checkbox
+.checkbox {
+  position: relative;
+
+  display: inline-block;
+
+  height: 3rem;
+  vertical-align: middle;
+  width: 44px;
+}
+
+input[type="checkbox"] {
+  font-size: 1em;
+  visibility: hidden;
+
+  & + span:before {
+    .position(absolute, 50%, auto, auto, 50%, .85em, .85em);
+    .transform(translate3d(-50%, -50%, 0));
+
+    background: transparent;
+    box-shadow: #abdfe3 0 0 0 1px inset;
+    content: '';
+    display: block;
+  }
+  &:checked + span:before {
+    box-shadow: none;
+    color: @color-medium-rare;
+
+    /* Icon family taken straight from icon.lessimport */
+    font-family: 'todos';
+  	speak: none;
+  	font-style: normal;
+  	font-weight: normal;
+  	font-variant: normal;
+  	text-transform: none;
+  	line-height: 1;
+
+  	/* Better Font Rendering =========== */
+  	-webkit-font-smoothing: antialiased;
+  	-moz-osx-font-smoothing: grayscale;
+
+  	/* Down arrow */
+    content: "\e612";
+  }
+}
+
 
 // input with an icon
 .input-symbol {

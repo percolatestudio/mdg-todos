@@ -1,0 +1,34 @@
+.list-items {
+  .list-item {
+    .font-s2;
+    height: 3rem;
+
+    & + .list-item { border-top: 1px solid #f0f9fb; }
+
+
+    .display(flex);
+    .flex-wrap(wrap);
+    width: 100%;
+
+    .checkbox { .flex(0, 0, 44px); }
+    input[type="text"] { .flex(1); }
+    [data-delete-item] { .flex(0, 0, 3rem); }
+
+    [data-delete-item] {
+      text-align: center;
+      line-height: 3rem;
+    }
+
+    &.checked {
+      input[type="text"] {
+        color: @color-medium-rare;
+        text-decoration: line-through;
+      }
+    }
+
+    // Toggle the delete button when a list item is being edited
+    //todo: change toggle class to .editing instead of .checked
+    [data-delete-item] { display: none; }
+    &.checked [data-delete-item] { display: inline-block; }
+  }
+}

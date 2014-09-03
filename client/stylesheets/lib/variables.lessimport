@@ -1,11 +1,13 @@
 /* Core */
-@color-primary: #2cc5d2; //caribbean teal
-@color-secondary: #5db9ff; //cerulean blue
-@color-tertiary: #d2edf4; //muted teal
+@color-primary: #2cc5d2; //caribbean teal (buttons)
+@color-secondary: #5db9ff; //cerulean blue (menu new list)
+@color-tertiary: #d2edf4; //muted teal (join/signin bg)
+@color-ancillary: #1c3f53; //deep navy (nav heading, menu icon)
+@color-complementary: #778b91; //muted navy (add item placeholder)
+
 
 /* Brand Colors */
 @color-brand: #f3ac15; //sunburst orange
-@color-brand: #f3cc71; //muted sunburst orange
 
 /* Alert */
 @color-negative: #ff4400; //error, alert
