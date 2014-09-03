@@ -8,25 +8,31 @@ nav {
   z-index: 10;
 
   .title-page {
-    .font-m1;
-    .ellipsized;
-
     .position(absolute, 0, 3rem, auto, 3rem);
+    font-size: 1.125em; //18px
 
-    color: @color-ancillary;
-    line-height: 3rem;
+    .title-wrapper {
+      .ellipsized;
+      color: @color-ancillary;
+      display: inline-block;
+      line-height: 3rem;
+      vertical-align: middle;
+    }
+
+    .count-list {
+      background: @color-primary;
+      border-radius: 1em;
+      color: @color-empty;
+      display: inline-block;
+      font-size: .625rem;
+      line-height: 1;
+      margin-left: 2px;
+      padding: .3em .5em;
+      vertical-align: middle;
+    }
   }
 
-  .count-list {
-    background: @color-primary;
-    border-radius: 1em;
-    color: @color-empty;
-    display: inline-block;
-    font-size: .625rem;
-    line-height: 1;
-    padding: .3em .5em;
-    vertical-align: middle;
-  }
+
   .nav-item {
     .font-m1;
     color: @color-ancillary;
@@ -54,6 +60,18 @@ nav {
   [name="new-todo-form"] {
     margin-top: 3em;
     width: 100%;
+    input[type="text"] {
+      padding-top: .25em;
+      padding-bottom: .25em;
+      padding-left: 44px !important;
+    }
+  }
+  .edit-list {
+    .font-s2;
+    .position(absolute, 0,0,0,0);
+    background: transparent;
+    opacity: 0; //allows the cog to appear
+    //z-index: 1;
   }
 }
 
