@@ -1,0 +1,62 @@
+@menu-width: 45%;
+
+body {
+  background: @color-well;
+}
+
+#container {
+  .position(absolute, 0, 0, 0, 0);
+
+  max-width: 500px;
+  max-height: 600px;
+
+  // hide anything offscreen .. we can never scroll the body
+  overflow: hidden;
+}
+
+#menu {
+  .position(absolute, 0, 0, 0, 0);
+  right: 100% - @menu-width;
+}
+
+#content-container {
+  .position(absolute, 0, 0, 0, 0);
+  .transition(all 200ms ease-out);
+  .transform(translate3d(0, 0, 0));
+
+  .content-scrollable {
+    .position(absolute, 0, 0, 0, 0);
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+
+    background: @color-empty;
+  }
+
+  .menu-open & {
+    .transform(translate3d(@menu-width, 0, 0));
+  }
+
+  [data-momentum] > div.page {
+    .position(absolute, 0, 0, 0, 0);
+  }
+
+}
+
+
+.content-overlay { //transparent screen to prevent interactions on content when menu is open
+  .position(absolute, 0, 0, 0, 0);
+  cursor: pointer;
+
+  .menu-open & {
+    .transform(translate3d(@menu-width, 0, 0));
+    z-index: 1;
+  }
+}
+
+#email-overlay {
+  .background-image(linear-gradient(top, rgba(232, 234, 241,.97), rgba(243,243,244, .97) 100%));
+  .position(absolute, 0, 0, 0, 0);;
+
+  z-index: 1;
+}
+

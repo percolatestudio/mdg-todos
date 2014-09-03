@@ -7,16 +7,18 @@
           <a data-logout>Logout</a>
         {{/if}}
       {{else}}
-        <a href="{{pathFor 'signin'}}">Sign In</a>
-        <a href="{{pathFor 'join'}}">Join</a>
+        <div class="btns-group">
+          <a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a>
+          <a href="{{pathFor 'join'}}" class="btn-secondary">Join</a>
+        </div>
       {{/if}}
-      
-      
+
+
       <a data-new-list>
         <span class="icon-plus"></span>
         <span class="title-menu">New List</span>
       </a>
-      
+
       {{#each lists}}
         <a href="{{pathFor 'listsShow'}}" class="{{activePage 'listsShow'}}">
           <span class="title-menu">{{name}}</span>

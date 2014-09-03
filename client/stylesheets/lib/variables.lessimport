@@ -1,0 +1,23 @@
+/* Core */
+@color-primary: #2cc5d2; //caribbean teal
+@color-secondary: #5db9ff; //cerulean blue
+@color-tertiary: #d2edf4; //muted teal
+
+/* Brand Colors */
+@color-brand: #f3ac15; //sunburst orange
+@color-brand: #f3cc71; //muted sunburst orange
+
+/* Alert */
+@color-negative: #ff4400; //error, alert
+@color-note: #f6fccf;
+
+/* Greyscale */
+@color-empty: white;
+@color-raw: #f8f8f8;
+@color-raw: #f2f2f2;
+@color-rare: #eee;
+@color-medium-rare: #ccc;
+@color-medium: #aaa;
+@color-medium-well: #666;
+@color-well: #555;
+@color-full: #333;

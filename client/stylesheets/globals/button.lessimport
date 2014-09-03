@@ -1,0 +1,50 @@
+[class^="btn-"],
+[class*=" btn-"] {
+  .title-caps;
+  .transition( all 200ms ease-in );
+
+  /* Sizing */
+  .font-s2;
+  line-height: 22px !important; //override line-height always so we can use em's to size.
+  padding: 1.25em 1.25em .9em; // 48px tall
+
+  color: @color-empty;
+  display: inline-block;
+  position: relative;
+  text-align: center;
+  text-decoration: none !important; //prevents global link styles from applying
+  vertical-align: middle;
+  white-space: nowrap;
+
+  &[class*="primary"] {
+    background-color: @color-primary;
+    color: @color-empty;
+    &:hover { background-color: darken(@color-primary, 5%); }
+    &:active { box-shadow: rgba(0,0,0,.3) 0 1px 3px 0 inset; }
+  }
+
+  &[class*="secondary"] {
+    .transition( box-shadow 100ms ease-in-out, color 300ms ease-in );
+
+    box-shadow: @color-empty 0 0 0 1px inset;
+    color: @color-empty;
+    &:hover{ color: @color-rare; }
+    &:active, &.active {
+      box-shadow: @color-empty 0 0 0 3em inset;
+      color: @color-primary;
+    }
+  }
+
+  &[disabled] { opacity: .5; }
+}
+
+.btns-group {
+  .display(flex);
+  .flex-wrap(wrap);
+  width: 100%;
+
+  [class*="btn-"] {
+    .ellipsized;
+    .flex(1);
+  }
+}
