@@ -3,13 +3,9 @@
   padding: 50% 10% 0;
   text-align: center;
   .title-message {
-    .font-m1;
+    .font-m2;
     .type-light;
-    color: @color-medium-well;
+    color: @color-ancillary;
     margin-bottom: .5em;
-  }
-  .subtitle-message {
-    .font-s3;
-    color: @color-medium;
   }
 }
