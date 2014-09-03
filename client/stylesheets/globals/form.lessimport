@@ -98,7 +98,7 @@ input[type="checkbox"] {
     &:focus {
       & + [class^="icon-"],
       & + [class*=" icon-"] {
-        color: @color-well;
+        color: @color-primary;
       }
     }
   }
