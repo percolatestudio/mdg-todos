@@ -1,34 +1,35 @@
 nav {
-  .position(absolute, 0, 0, auto, 0, 100%, 3em);
+  .position(absolute, 0, 0, auto, 0, 100%, 5em);
   .transform(translate3d(0,0,0));
   .transition( all 200ms ease-out );
+  .background-image( linear-gradient(top, #d0edf5, #e1e5f0 100%) );
 
-  background: rgba(255,255,255,.97);
   text-align: center;
   z-index: 10;
 
   .title-page {
-    .font-s2;
-    .title-caps;
+    .font-m1;
     .ellipsized;
 
-    .position(absolute, 50%, 0, auto, 0);
-    .transform(translate3d(0, -40%, 0));
+    .position(absolute, 0, 3rem, auto, 3rem);
 
+    color: @color-ancillary;
+    line-height: 3rem;
+  }
+
+  .count-list {
+    background: @color-primary;
+    border-radius: 1em;
+    color: @color-empty;
+    display: inline-block;
+    font-size: .625rem;
     line-height: 1;
-
-    .subtext-page {
-      .font-s1;
-      color: @color-medium;
-      display: block;
-      letter-spacing: 0;
-      line-height: 1;
-      text-transform: none;
-    }
+    padding: .3em .5em;
+    vertical-align: middle;
   }
   .nav-item {
     .font-m1;
-    color: @color-full;
+    color: @color-ancillary;
     display: inline-block;
     height: 3rem;
     width: 3rem;
@@ -50,4 +51,12 @@ nav {
       right: 0;
     }
   }
+  [name="new-todo-form"] {
+    margin-top: 3em;
+    width: 100%;
+  }
+}
+
+.desktop-only {
+  display: none;
 }
