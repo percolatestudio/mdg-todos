@@ -14,19 +14,18 @@
       {{/if}}
 
 
-      <a data-new-list>
-        <span class="icon-plus"></span>
-        <span class="title-menu">New List</span>
-      </a>
+      <div class="list-todos">
+        <a data-new-list class="link-list-new"><span class="icon-plus"></span>New List</a>
 
-      {{#each lists}}
-        <a href="{{pathFor 'listsShow'}}" class="{{activePage 'listsShow'}}">
-          <span class="title-menu">{{name}}</span>
-          {{#if isPrivate}}
-            <span class="icon-lock"></span>
-          {{/if}}
-        </a>
-      {{/each}}
+        {{#each lists}}
+          <a href="{{pathFor 'listsShow'}}" class="list-todo {{activePage 'listsShow'}}">
+            <span class="">{{name}}</span>
+            {{#if isPrivate}}
+              <span class="icon-lock"></span>
+            {{/if}}
+          </a>
+        {{/each}}
+      </div>
     </section>
 
     <div id="content-container">

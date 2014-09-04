@@ -1,39 +1,51 @@
 #menu {
-  .background-image(
-    linear-gradient(top, rgba(85,134,223,.1), rgba(0,0,0,0) 100%),
-    url('img/app/bg-menu-640x1136.jpg')
-  );
+  .background-image( linear-gradient(top, #315481, #918e82 100%) );
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
-  a {
-    .font-s2;
-
-    color: rgba(255,255,255,.4);
-    display: block;
-    height: 142px;
-    padding-top: 3rem;
-    text-align: center;
-
-    & + a {
-      box-shadow: rgba(129,206,200,.1) 0 -1px 0 0;
-    }
-
-    &:hover,
-    &:active,
-    &.active {
-      color: @color-empty;
-    }
-
-    .title-menu {
-      .title-caps;
-    }
-
-    [class^="icon-"],
-    [class*=" icon-"] {
-      .font-m1;
-      display: block;
-      margin-bottom: .25rem;
+  .btns-group {
+    width: 80%;
+    margin: 2em auto 2em;
+    .btn-secondary {
+      .font-s1;
+      padding-top: 5px;
+      padding-bottom: 5px;
     }
   }
+
+  .list-todos {
+    a {
+      box-shadow: #517096 0 1px 0 0;
+      display: block;
+      line-height: 3em;
+      padding-left: 2.5em;
+    }
+
+    .link-list-new {
+      [class^="icon-"],
+      [class*=" icon-"] {
+        .font-s2;
+        display: inline-block;
+        margin-left: -1.5em;
+        margin-right: .5em;
+        width: 1em;
+      }
+    }
+
+    .list-todo {
+      color: rgba(255,255,255,.4);
+
+      &:hover,
+      &:active,
+      &.active {
+        color: @color-empty;
+      }
+
+      [class^="icon-"],
+      [class*=" icon-"] {
+        .font-s2;
+      }
+    }
+  }
+
 }
