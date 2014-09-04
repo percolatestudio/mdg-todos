@@ -15,6 +15,7 @@
 
   //style of list-item contents
   input[type="text"] {
+    background: transparent;
     cursor: pointer;
     &:focus { cursor: text; }
   }

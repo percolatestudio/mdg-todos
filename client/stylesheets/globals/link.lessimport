@@ -1,6 +1,6 @@
 a {
   .transition( all 200ms ease-in );
-  color: @color-primary;
+  color: @color-secondary;
   cursor: pointer;
   text-decoration: none;
 
