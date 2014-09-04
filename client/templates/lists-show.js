@@ -48,12 +48,13 @@ Template.listsShow.events({
   'submit [data-new-todo]': function(e, template) {
     e.preventDefault();
 
+    var $input = $(e.target).find('[type=text]');
     Todos.insert({
       listId: this._id,
-      text: template.$('[type=text]').val(),
+      text: $input.val(),
       checked: false
     });
-    template.$('[type=text]').val('');
+    $input.val('');
   },
 
   'change [type=checkbox]': function(e) {
