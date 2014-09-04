@@ -8,14 +8,14 @@
     margin: 2em auto 2em;
     .btn-secondary {
       .font-s1;
-      padding-top: 5px;
-      padding-bottom: 5px;
+      padding-top: .5em;
+      padding-bottom: .5em;
     }
   }
 
   .list-todos {
     a {
-      box-shadow: #517096 0 1px 0 0;
+      box-shadow: rgba(255,255,255,.15) 0 1px 0 0;
       display: block;
       line-height: 3em;
       padding-left: 2.5em;

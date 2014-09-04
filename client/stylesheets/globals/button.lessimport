@@ -5,8 +5,8 @@
 
   /* Sizing */
   .font-s2;
-  line-height: 22px !important; //override line-height always so we can use em's to size.
-  padding: 1.25em 1.25em .9em; // 48px tall
+  line-height: 20px !important; //override line-height always so we can use em's to size.
+  padding: 1em 1.25em; // 48px tall
 
   color: @color-empty;
   display: inline-block;
@@ -26,12 +26,12 @@
   &[class*="secondary"] {
     .transition( box-shadow 100ms ease-in-out, color 300ms ease-in );
 
-    box-shadow: @color-empty 0 0 0 1px inset;
+    box-shadow: lighten(#517096, 5%) 0 0 0 1px inset;
     color: @color-empty;
     &:hover{ color: @color-rare; }
     &:active, &.active {
       box-shadow: @color-empty 0 0 0 3em inset;
-      color: @color-primary;
+      color: @color-ancillary;
     }
   }
 
@@ -46,5 +46,7 @@
   [class*="btn-"] {
     .ellipsized;
     .flex(1);
+
+    & + [class*="btn-"] { margin-left: -1px; }
   }
 }
