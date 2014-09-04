@@ -61,7 +61,7 @@ nav {
       vertical-align: middle;
     }
   }
-  [name="new-todo-form"] {
+  .new-todo {
     margin-top: 3em;
     width: 100%;
     input[type="text"] {

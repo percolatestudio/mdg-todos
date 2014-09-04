@@ -45,7 +45,7 @@ Template.listsShow.events({
     }
   },
 
-  'submit [name=new-todo-form]': function(e, template) {
+  'submit [data-new-todo]': function(e, template) {
     e.preventDefault();
 
     Todos.insert({
