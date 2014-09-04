@@ -9,10 +9,6 @@ Template.listsShow.helpers({
 
   todos: function() {
     return Todos.find({listId: this._id});
-  },
-
-  checkedClass: function() {
-    return this.checked && 'checked';
   }
 });
 
