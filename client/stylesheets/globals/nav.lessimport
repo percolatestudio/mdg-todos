@@ -11,6 +11,7 @@ nav {
     color: @color-ancillary;
     display: inline-block;
     height: 3rem;
+    text-align: center;
     width: 3rem;
 
     &:active { opacity: .5; }
@@ -33,17 +34,27 @@ nav {
 }
 
 // Custom nav for lists-show
-.lists-show nav {
+.page.lists-show nav {
   .background-image( linear-gradient(top, #d0edf5, #e1e5f0 100%) );
   height: 5em;
+
   text-align: center;
+  @media screen and (min-width: 40em) { text-align: left; }
+
   .title-page {
     .position(absolute, 0, 3rem, auto, 3rem);
+    @media screen and (min-width: 40em) { left: 1rem; }
+
     font-size: 1.125em; //18px
+    white-space: nowrap;
 
     .title-wrapper {
       .ellipsized;
       color: @color-ancillary;
+      display: inline-block;
+      padding-right: 1.5rem;
+      vertical-align: top;
+      max-width: 100%;
     }
 
     .count-list {
@@ -53,8 +64,8 @@ nav {
       display: inline-block;
       font-size: .625rem;
       line-height: 1;
-      margin-left: 2px;
-      margin-top: -2px;
+      margin-left: -1.5rem;
+      margin-top: -4px;
       padding: .3em .5em;
       vertical-align: middle;
     }
@@ -84,10 +95,27 @@ nav {
     .position(absolute, 0,0,0,0);
     background: transparent;
     opacity: 0; //allows the cog to appear
-    //z-index: 1;
+  }
+
+  .options-web {
+    display: none;
+    .nav-item {
+      .font-s3;
+      width: 2rem;
+      &:last-child { margin-right: .5rem; }
+    }
+  }
+
+  //responsive hide & show
+  @media screen and (min-width: 40em) {
+    .nav-group:not(.right) { display: none; }
+    .options-mobile { display: none; }
+    .options-web {  display: block; }
   }
 }
 
-.desktop-only {
-  display: none;
+.page.auth nav {
+  @media screen and (min-width: 40em) {
+    .nav-group { display: none; }
+  }
 }
