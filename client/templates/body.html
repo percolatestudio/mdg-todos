@@ -26,8 +26,8 @@
         <a data-new-list class="link-list-new"><span class="icon-plus"></span>New List</a>
 
         {{#each lists}}
-          <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}}">
-            <span class="">{{name}}</span>
+          <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}}" title="{{name}}">
+            {{name}}
             {{#if isPrivate}}
               <span class="icon-lock"></span>
             {{/if}}
