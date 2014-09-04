@@ -21,7 +21,7 @@ body {
     right: 2*@column;
   }
 
-  // hide anything offscreen
+  // Hide anything offscreen
   overflow: hidden;
 }
 
@@ -33,7 +33,6 @@ body {
   .position(absolute, 0, 0, 0, 0);
   .transition(all 200ms ease-out);
   .transform(translate3d(0, 0, 0));
-
   opacity: 1;
 
   .content-scrollable {
@@ -42,13 +41,13 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
-  // toggle menu on mobile
+  // Toggle menu on mobile
   .menu-open & {
     .transform(translate3d(@menu-width, 0, 0));
     opacity: .85;
   }
 
-  // show menu on desktop, negate .menu-open
+  // Show menu on desktop, negate .menu-open
   @media screen and (min-width: 40em) {
     .transform(translate3d(0, 0, 0)); //reset transform and use position properties instead
     left: @menu-width;
@@ -56,8 +55,8 @@ body {
   }
 }
 
-
-.content-overlay { //transparent screen to prevent interactions on content when menu is open
+// Transparent screen to prevent interactions on content when menu is open
+.content-overlay {
   .position(absolute, 0, 0, 0, 0);
   cursor: pointer;
 

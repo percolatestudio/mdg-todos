@@ -1,33 +1,34 @@
 [class^="btn-"],
 [class*=" btn-"] {
-  .title-caps;
-  .transition( all 200ms ease-in );
-
-  /* Sizing */
+  // Sizing
   .font-s2;
-  line-height: 20px !important; //override line-height always so we can use em's to size.
+  line-height: 20px !important; //override line-height always so we can use em's to size
   padding: 1em 1.25em; // 48px tall
 
+  // Style
+  .title-caps;
+  .transition( all 200ms ease-in );
   color: @color-empty;
   display: inline-block;
   position: relative;
   text-align: center;
-  text-decoration: none !important; //prevents global link styles from applying
+  text-decoration: none !important; //prevents global <a> styles from applying
   vertical-align: middle;
   white-space: nowrap;
 
   &[class*="primary"] {
     background-color: @color-primary;
     color: @color-empty;
+
     &:hover { background-color: darken(@color-primary, 5%); }
     &:active { box-shadow: rgba(0,0,0,.3) 0 1px 3px 0 inset; }
   }
 
   &[class*="secondary"] {
     .transition( all 300ms ease-in );
-
     box-shadow: lighten(#517096, 5%) 0 0 0 1px inset;
     color: @color-empty;
+
     &:hover{ color: @color-rare; }
     &:active,
     &.active {

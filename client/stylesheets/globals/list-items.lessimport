@@ -1,22 +1,23 @@
 .list-items .list-item {
   .font-s2;
-  & + .list-item { border-top: 1px solid #f0f9fb; }
 
-  // layout of list-item contents
+  // Layout of list-item children
   .display(flex);
   .flex-wrap(wrap);
   height: 3rem;
   width: 100%;
+
   .checkbox { .flex(0, 0, 44px); }
   .icon-edit { .flex(0, 0, 44px); }
   input[type="text"] { .flex(1); }
   [data-delete-item] { .flex(0, 0, 3rem); }
 
 
-  //style of list-item contents
+  // Style of list-item children
   input[type="text"] {
     background: transparent;
     cursor: pointer;
+
     &:focus { cursor: text; }
   }
 
@@ -24,6 +25,7 @@
     color: @color-medium-rare;
     line-height: 3rem;
     text-align: center;
+
     &:hover { color: @color-primary; }
     &:active { color: @color-well; }
   }
@@ -34,12 +36,16 @@
     color: @color-primary;
   }
 
+  // Border between list items
+  & + .list-item { border-top: 1px solid #f0f9fb; }
+
   // Checked
   &.checked {
     input[type="text"] {
       color: @color-medium-rare;
       text-decoration: line-through;
     }
+
     [data-delete-item] { display: inline-block; }
   }
 

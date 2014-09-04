@@ -3,7 +3,6 @@ nav {
   .position(absolute, 0, 0, auto, 0);
   .transform(translate3d(0,0,0));
   .transition( all 200ms ease-out );
-
   z-index: 10;
 
   .nav-item {
@@ -45,7 +44,7 @@ nav {
     .position(absolute, 0, 3rem, auto, 3rem);
     @media screen and (min-width: 40em) { left: 1rem; }
 
-    font-size: 1.125em; //18px
+    font-size: 1.125em; // 18px
     white-space: nowrap;
 
     .title-wrapper {
@@ -72,6 +71,7 @@ nav {
   }
   form.todo-new {
     .position(absolute, 3em, 0, auto, 0);
+
     input[type="text"] {
       background: transparent;
       padding-bottom: .25em;
@@ -81,33 +81,38 @@ nav {
   }
   form.list-edit-form {
     position: relative;
+
     .input-symbol {
-      width: 100%;
       padding-right: 3em;
+      width: 100%;
     }
+
     input[type="text"] {
       background: transparent;
-      font-size: 1.125em; //18px
-      padding-left: 2.5em; //resets default style
+      font-size: 1.125em; // 18px
+      padding-left: 2.5em; // resets default style
     }
   }
+
   select.list-edit {
     .font-s2;
     .position(absolute, 0,0,0,0);
     background: transparent;
-    opacity: 0; //allows the cog to appear
+    opacity: 0; // allows the cog to appear
   }
 
   .options-web {
     display: none;
+
     .nav-item {
       .font-s3;
       width: 2rem;
+
       &:last-child { margin-right: .5rem; }
     }
   }
 
-  //responsive hide & show
+  // Hide & show options and nav icons
   @media screen and (min-width: 40em) {
     .nav-group:not(.right) { display: none; }
     .options-mobile { display: none; }
@@ -115,8 +120,8 @@ nav {
   }
 }
 
-.page.auth nav {
-  @media screen and (min-width: 40em) {
-    .nav-group { display: none; }
-  }
+
+// Custom nav for auth
+@media screen and (min-width: 40em) {
+  .page.auth nav .nav-group { display: none; }
 }
