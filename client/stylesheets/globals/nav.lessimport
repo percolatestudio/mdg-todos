@@ -44,9 +44,6 @@ nav {
     .title-wrapper {
       .ellipsized;
       color: @color-ancillary;
-      display: inline-block;
-      line-height: 3rem;
-      vertical-align: middle;
     }
 
     .count-list {
@@ -57,13 +54,13 @@ nav {
       font-size: .625rem;
       line-height: 1;
       margin-left: 2px;
+      margin-top: -2px;
       padding: .3em .5em;
       vertical-align: middle;
     }
   }
-  .new-todo {
-    margin-top: 3em;
-    width: 100%;
+  form.todo-new {
+    .position(absolute, 3em, 0, auto, 0);
     input[type="text"] {
       background: transparent;
       padding-bottom: .25em;
@@ -71,7 +68,17 @@ nav {
       padding-top: .25em;
     }
   }
-  .edit-list {
+  form.list-edit-form {
+    position: relative;
+    .input-symbol {
+      width: 100%;
+    }
+    input[type="text"] {
+      font-size: 1.125em; //18px
+      background: transparent;
+    }
+  }
+  select.list-edit {
     .font-s2;
     .position(absolute, 0,0,0,0);
     background: transparent;

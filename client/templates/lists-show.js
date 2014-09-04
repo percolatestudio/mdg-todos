@@ -17,14 +17,14 @@ Template.listsShow.events({
     Session.set(EDITING_KEY, false);
   },
 
-  'submit .edit-list-form': function(e, template) {
+  'submit .list-edit-form': function(e, template) {
     e.preventDefault();
 
     Lists.update(this._id, {$set: {name: template.$('[name=name]').val()}});
     Session.set(EDITING_KEY, false);
   },
 
-  'change .edit-list': function(e) {
+  'change .list-edit': function(e) {
     if ($(e.target).val() === 'edit') {
       Session.set(EDITING_KEY, true);
     } else if ($(e.target).val() === 'delete') {
@@ -48,7 +48,7 @@ Template.listsShow.events({
     }
   },
 
-  'submit [data-new-todo]': function(e, template) {
+  'submit [data-todo-new]': function(e, template) {
     e.preventDefault();
 
     var $input = $(e.target).find('[type=text]');

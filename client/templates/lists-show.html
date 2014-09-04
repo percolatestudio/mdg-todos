@@ -1,13 +1,18 @@
 <template name="listsShow">
   <div class="page lists-show">
-    {{#if editing}}
-      <form class="edit-list-form">
-        <span class="icon-pen"></span>
-        <input type="text" name="name" value="{{name}}">
-        <span class="icon-cross" data-cancel>CANCEL</span>
-      </form>
-    {{else}}
-      <nav>
+    <nav>
+      {{#if editing}}
+        <form class="list-edit-form">
+          <div class="input-symbol">
+            <input type="text" name="name" value="{{name}}">
+            <span class="icon-edit"></span>
+          </div>
+          <div class="nav-group right">
+            <a data-cancel href="#" class="nav-item"><span class="icon-close"></span></a>
+          </div>
+
+        </form>
+      {{else}}
         <div class="nav-group">
           <a data-menu href="#" class="nav-item"><span class="icon-list-unordered"></span></a>
         </div>
@@ -17,8 +22,8 @@
         <div class="nav-group right">
 
           <div class="nav-item mobile-only">
-            <select class="edit-list">
-              <option disabled>Select an action</option>
+            <select class="list-edit">
+              <option disabled selected>Select an action</option>
               <option value="edit">Edit</option>
               <option value="delete">Delete</option>
               {{#if currentUser}}
@@ -38,13 +43,13 @@
           </div>
 
         </div>
+      {{/if}}
+      <form data-todo-new class="todo-new input-symbol">
+        <input type="text" placeholder="Add Item">
+        <span class="icon-add"></span>
+      </form>
+    </nav>
 
-        <form data-new-todo class="new-todo input-symbol">
-          <input type="text" placeholder="Add Item">
-          <span class="icon-add"></span>
-        </form>
-      </nav>
-    {{/if}}
 
     <div class="content-scrollable list-items">
       {{#each todos}}
