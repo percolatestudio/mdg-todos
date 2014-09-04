@@ -12,6 +12,13 @@
         <p class="subtitle-auth" >Signing in allows you to view your private lists</p>
 
         <form>
+          {{#if errors}}
+            <div class="errors">
+              {{#each errors}}
+                <p>{{this}}</p>
+              {{/each}}
+            </div>
+          {{/if}}
           <div class="input-symbol">
             <input type="email" name="email" placeholder="Your Email" />
             <span class="icon-email"></span>
