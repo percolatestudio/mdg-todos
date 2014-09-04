@@ -1,0 +1,35 @@
+.page.auth {
+  text-align: center;
+  .content-scrollable {
+    background: @color-tertiary;
+  }
+  .wrapper-auth {
+    padding-top: 7em;
+
+    .title-auth {
+      .font-l1;
+      .type-light;
+      color: @color-ancillary;
+      margin-bottom: .75rem;
+    }
+    .subtitle-auth {
+      color: @color-medium-well;
+      margin: 0 15% 3.5rem;
+    }
+    form {
+      .input-symbol {
+        margin-bottom: 1px;
+        width: 100%;
+      }
+      .btn-primary {
+        margin: 1em 5% 0;
+        width: 90%;
+      }
+    }
+  }
+  .link-auth-alt {
+    .font-s1;
+    .position(absolute, auto, 0, 1em, 0);
+    color: @color-medium;
+  }
+}
