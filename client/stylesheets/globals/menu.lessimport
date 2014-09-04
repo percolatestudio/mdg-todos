@@ -3,13 +3,36 @@
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
-  .btns-group {
+  .btns-group,
+  .btns-group-vertical {
     width: 80%;
     margin: 2em auto 2em;
     .btn-secondary {
       .font-s1;
       padding-top: .5em;
       padding-bottom: .5em;
+    }
+  }
+
+  .btns-group-vertical {
+    .btn-secondary {
+      text-align: left;
+      width: 100%;
+
+      & + .btn-secondary {
+        margin-top: .5rem;
+        &:before {
+          content: '';
+          .position(absolute, -.5rem, 50%, auto, auto, 1px, .5rem);
+          background: lighten(#517096, 5%);
+        }
+      }
+
+      [class^="icon-"],
+      [class*=" icon-"] {
+        float: right;
+        line-height: 20px;
+      }
     }
   }
 

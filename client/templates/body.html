@@ -2,10 +2,18 @@
   <div id="container" class="{{menuOpen}}">
     <section id="menu">
       {{#if currentUser}}
-        <div data-user-menu>{{email}}</div>
-        {{#if userMenuOpen}}
-          <a data-logout>Logout</a>
-        {{/if}}
+        <div class="btns-group-vertical">
+          <div data-user-menu class="btn-secondary">{{email}}
+            {{#if userMenuOpen}}
+              <span class="icon-arrow-up"></span>
+              {{else}}
+              <span class="icon-arrow-down"></span>
+            {{/if}}
+          </div>
+          {{#if userMenuOpen}}
+            <a data-logout class="btn-secondary">Logout</a>
+          {{/if}}
+        </div>
       {{else}}
         <div class="btns-group">
           <a href="{{pathFor 'signin'}}" class="btn-secondary">Sign In</a>
