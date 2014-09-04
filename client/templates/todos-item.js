@@ -26,7 +26,20 @@ Template.todosItem.events({
     }, 200);
   },
   
+  'keydown input[type=text]': function(e) {
+    // ESC or ENTER
+    if (_.include([27, 13], e.which)) {
+      e.preventDefault();
+      $(e.target).blur();
+    }
+  },
+  
+  'keyup input[type=text]': _.throttle(function(e) {
+    Todos.update(this._id, {$set: {text: $(e.target).val()}});
+  }, 300),
+  
   'click [data-delete-item]': function() {
     Todos.remove(this._id);
   }
+  
 });
