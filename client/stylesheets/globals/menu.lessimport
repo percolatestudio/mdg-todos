@@ -32,6 +32,7 @@
       [class*=" icon-"] {
         float: right;
         line-height: 20px;
+        margin-right: -.5em;
       }
     }
   }

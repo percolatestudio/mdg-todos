@@ -74,8 +74,9 @@ nav {
       width: 100%;
     }
     input[type="text"] {
-      font-size: 1.125em; //18px
       background: transparent;
+      font-size: 1.125em; //18px
+      padding-left: 2.5em; //resets default style
     }
   }
   select.list-edit {

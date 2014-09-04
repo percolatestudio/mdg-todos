@@ -24,14 +24,14 @@
   }
 
   &[class*="secondary"] {
-    .transition( box-shadow 100ms ease-in-out, color 300ms ease-in );
+    .transition( all 300ms ease-in );
 
     box-shadow: lighten(#517096, 5%) 0 0 0 1px inset;
     color: @color-empty;
     &:hover{ color: @color-rare; }
-    &:active, &.active {
-      box-shadow: @color-empty 0 0 0 3em inset;
-      color: @color-ancillary;
+    &:active,
+    &.active {
+      box-shadow: lighten(#517096, 25%) 0 0 0 1px inset;
     }
   }
 
