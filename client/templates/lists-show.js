@@ -30,8 +30,11 @@ Template.listsShow.events({
     } else if ($(e.target).val() === 'delete') {
       var message = "Are you sure you want to delete the list " + this.name + "?";
       if (confirm(message)) {
+        // XXX: probably use a method for this
+        Todos.find({listId: this._id}).forEach(function(todo) {
+          Todos.remove(todo._id);
+        });
         Lists.remove(this._id);
-        Todos.remove({listId: this._id});
         Router.go('home');
       }
     } else {
