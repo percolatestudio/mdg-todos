@@ -23,22 +23,27 @@ Template.body.events({
   'click [data-menu]': function() {
     Session.set(MENU_KEY, ! Session.get(MENU_KEY));
   },
-  
+
+  'click .content-overlay': function(e) {
+    Session.set(MENU_KEY, false);
+    e.preventDefault();
+  },
+
   'click [data-user-menu]': function() {
     Session.set(USER_MENU_KEY, ! Session.get(USER_MENU_KEY));
   },
-  
+
   'click [data-logout]': function() {
     Meteor.logout();
   },
-  
+
   'click [data-new-list]': function() {
     var list = {
       name: 'New List'
     };
-    
+
     list._id = Lists.insert(list);
-    
+
     // XXX: should we do this async
     Router.go('listsShow', list);
   }
