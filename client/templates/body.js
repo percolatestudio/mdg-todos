@@ -28,6 +28,10 @@ Template.body.events({
     Session.set(MENU_KEY, false);
     e.preventDefault();
   },
+  
+  'click #menu a': function() {
+    Session.set(MENU_KEY, false);
+  },
 
   'click [data-user-menu]': function() {
     Session.set(USER_MENU_KEY, ! Session.get(USER_MENU_KEY));
