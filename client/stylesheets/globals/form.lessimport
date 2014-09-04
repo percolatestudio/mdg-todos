@@ -94,7 +94,7 @@ input[type="checkbox"] {
     left: 1em;
   }
 
-  input { padding-left: 2.75em; }
+  input { padding-left: 3em; }
 
   //icon & input styling
   input {
