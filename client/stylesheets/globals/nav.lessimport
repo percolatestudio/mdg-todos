@@ -62,7 +62,7 @@ nav {
       border-radius: 1em;
       color: @color-empty;
       display: inline-block;
-      font-size: .625rem;
+      font-size: .7rem;
       line-height: 1;
       margin-left: -1.5rem;
       margin-top: -4px;
@@ -83,6 +83,7 @@ nav {
     position: relative;
     .input-symbol {
       width: 100%;
+      padding-right: 3em;
     }
     input[type="text"] {
       background: transparent;
