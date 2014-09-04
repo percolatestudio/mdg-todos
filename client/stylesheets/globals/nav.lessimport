@@ -1,37 +1,10 @@
+// Generic nav positioning and styles
 nav {
-  .position(absolute, 0, 0, auto, 0, 100%, 5em);
+  .position(absolute, 0, 0, auto, 0, 100%);
   .transform(translate3d(0,0,0));
   .transition( all 200ms ease-out );
-  .background-image( linear-gradient(top, #d0edf5, #e1e5f0 100%) );
 
-  text-align: center;
   z-index: 10;
-
-  .title-page {
-    .position(absolute, 0, 3rem, auto, 3rem);
-    font-size: 1.125em; //18px
-
-    .title-wrapper {
-      .ellipsized;
-      color: @color-ancillary;
-      display: inline-block;
-      line-height: 3rem;
-      vertical-align: middle;
-    }
-
-    .count-list {
-      background: @color-primary;
-      border-radius: 1em;
-      color: @color-empty;
-      display: inline-block;
-      font-size: .625rem;
-      line-height: 1;
-      margin-left: 2px;
-      padding: .3em .5em;
-      vertical-align: middle;
-    }
-  }
-
 
   .nav-item {
     .font-m1;
@@ -57,13 +30,45 @@ nav {
       right: 0;
     }
   }
+}
+
+// Custom nav for lists-show
+.lists-show nav {
+  .background-image( linear-gradient(top, #d0edf5, #e1e5f0 100%) );
+  height: 5em;
+  text-align: center;
+  .title-page {
+    .position(absolute, 0, 3rem, auto, 3rem);
+    font-size: 1.125em; //18px
+
+    .title-wrapper {
+      .ellipsized;
+      color: @color-ancillary;
+      display: inline-block;
+      line-height: 3rem;
+      vertical-align: middle;
+    }
+
+    .count-list {
+      background: @color-primary;
+      border-radius: 1em;
+      color: @color-empty;
+      display: inline-block;
+      font-size: .625rem;
+      line-height: 1;
+      margin-left: 2px;
+      padding: .3em .5em;
+      vertical-align: middle;
+    }
+  }
   [name="new-todo-form"] {
     margin-top: 3em;
     width: 100%;
     input[type="text"] {
-      padding-top: .25em;
+      background: transparent;
       padding-bottom: .25em;
       padding-left: 44px !important;
+      padding-top: .25em;
     }
   }
   .edit-list {
