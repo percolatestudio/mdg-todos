@@ -12,20 +12,20 @@ Template.join.events({
     var email = template.$('[name=email]').val();
     var password = template.$('[name=password]').val();
     var confirm = template.$('[name=confirm]').val();
-    
-    
+
+
     var errors = [];
     if (! email)
-      errors.push('Email is required');
+      errors.push('Email required');
     if (! password)
-      errors.push('Password is required');
+      errors.push('Password required');
     if (confirm !== password)
       errors.push('Please confirm your password');
-    
+
     Session.set(ERRORS_KEY, errors);
     if (errors.length)
       return;
-    
+
     Accounts.createUser({
       email: email,
       password: password

@@ -4,7 +4,7 @@
     background: @color-tertiary;
   }
   .wrapper-auth {
-    padding-top: 7em;
+    padding-top: 6.5em;
 
     .title-auth {
       .font-l1;
@@ -24,6 +24,17 @@
       .btn-primary {
         margin: 1em 5% 0;
         width: 90%;
+      }
+    }
+    .list-errors {
+      .list-item {
+        .title-caps;
+
+        background: @color-note;
+        color: @color-negative;
+        font-size: .625em; // 10px
+        margin-bottom: 1px;
+        padding: .5rem 0;
       }
     }
   }

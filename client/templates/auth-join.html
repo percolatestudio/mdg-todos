@@ -13,9 +13,9 @@
 
         <form>
           {{#if errors}}
-            <div class="errors">
+            <div class="list-errors">
               {{#each errors}}
-                <p>{{this}}</p>
+                <div class="list-item">{{this}}</div>
               {{/each}}
             </div>
           {{/if}}
