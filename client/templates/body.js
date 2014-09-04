@@ -21,6 +21,9 @@ Template.body.helpers({
     var current = Router.current()
     if (current.route.name === 'listsShow' && current.params._id === this._id)
       return 'active';
+  },
+  connected: function() {
+    return Meteor.status().connected;
   }
 });
 
@@ -33,7 +36,7 @@ Template.body.events({
     Session.set(MENU_KEY, false);
     e.preventDefault();
   },
-  
+
   'click #menu a': function() {
     Session.set(MENU_KEY, false);
   },
