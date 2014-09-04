@@ -11,12 +11,6 @@ body {
 #container {
   .position(absolute, 0, 0, 0, 0);
 
-  /*
-@media screen and (min-width: 40em) {
-    left: @column;
-    right: @column;
-  }
-*/
   @media screen and (min-width: 60em) {
     left: @column;
     right: @column;
@@ -68,6 +62,10 @@ body {
 .content-overlay { //transparent screen to prevent interactions on content when menu is open
   .position(absolute, 0, 0, 0, 0);
   cursor: pointer;
+
+  @media screen and (min-width: 40em) {
+    display: none;
+  }
 
   .menu-open & {
     .transform(translate3d(@menu-width, 0, 0));
