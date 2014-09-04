@@ -1,19 +1,37 @@
-@menu-width: 85%;
+@menu-width: 280px;
+@column: 5.55555%;
 
 body {
-  background: @color-well;
+  .position(absolute, 0, 0, 0, 0);
+  .background-image( linear-gradient(top, #315481, #918e82 100%) );
+  background-repeat: no-repeat;
+  background-attachment: fixed;
 }
 
 #container {
   .position(absolute, 0, 0, 0, 0);
+
+  /*
+@media screen and (min-width: 40em) {
+    left: @column;
+    right: @column;
+  }
+*/
+  @media screen and (min-width: 60em) {
+    left: @column;
+    right: @column;
+  }
+  @media screen and (min-width: 80em) {
+    left: 2*@column;
+    right: 2*@column;
+  }
 
   // hide anything offscreen .. we can never scroll the body
   overflow: hidden;
 }
 
 #menu {
-  .position(absolute, 0, 0, 0, 0);
-  right: 100% - @menu-width;
+  .position(absolute, 0, 0, 0, 0, @menu-width);
 }
 
 #content-container {
@@ -29,15 +47,21 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
+  [data-momentum] > div.page {
+    .position(absolute, 0, 0, 0, 0);
+  }
+
+  // Toggle menu on mobile, Show menu on desktop
   .menu-open & {
     .transform(translate3d(@menu-width, 0, 0));
     opacity: .85;
   }
 
-  [data-momentum] > div.page {
-    .position(absolute, 0, 0, 0, 0);
+  @media screen and (min-width: 40em) {
+    .transform(translate3d(0, 0, 0)); //reset transform and use position properties instead
+    left: @menu-width;
+    opacity: 1;
   }
-
 }
 
 

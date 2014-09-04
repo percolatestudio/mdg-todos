@@ -1,5 +1,4 @@
 #menu {
-  .background-image( linear-gradient(top, #315481, #918e82 100%) );
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 
