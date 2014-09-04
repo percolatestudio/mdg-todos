@@ -32,9 +32,12 @@ Template.listsShow.events({
     if ($(e.target).val() === 'edit') {
       Session.set(EDITING_KEY, true);
     } else if ($(e.target).val() === 'delete') {
-      Lists.remove(this._id);
-      // XXX: remove Todos too
-      Router.go('home');
+      var message = "Are you sure you want to delete the list " + this.name + "?";
+      if (confirm(message)) {
+        Lists.remove(this._id);
+        Todos.remove({listId: this._id});
+        Router.go('home');
+      }
     } else {
       if (! Meteor.user())
         throw "Can't change list privacy if not logged in";
