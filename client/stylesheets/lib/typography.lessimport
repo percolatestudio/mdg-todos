@@ -9,8 +9,7 @@
 }
 
 
-/* Large fonts */
-
+// Large fonts
 .font-l3() {
   font-size: 56px;
   line-height: 64px;
@@ -26,8 +25,7 @@
   line-height: 48px;
 }
 
-/* Medium fonts */
-
+// Medium fonts
 .font-m3() {
   font-size: 28px;
   line-height: 32px;
@@ -43,8 +41,7 @@
   line-height: 24px;
 }
 
-/* Small fonts */
-
+// Small fonts
 .font-s3() {
   font-size: 16px;
   line-height: 24px;

@@ -15,12 +15,13 @@ body {
     left: @column;
     right: @column;
   }
+
   @media screen and (min-width: 80em) {
     left: 2*@column;
     right: 2*@column;
   }
 
-  // hide anything offscreen .. we can never scroll the body
+  // hide anything offscreen
   overflow: hidden;
 }
 
@@ -41,16 +42,13 @@ body {
     -webkit-overflow-scrolling: touch;
   }
 
-  [data-momentum] > div.page {
-    .position(absolute, 0, 0, 0, 0);
-  }
-
-  // Toggle menu on mobile, Show menu on desktop
+  // toggle menu on mobile
   .menu-open & {
     .transform(translate3d(@menu-width, 0, 0));
     opacity: .85;
   }
 
+  // show menu on desktop, negate .menu-open
   @media screen and (min-width: 40em) {
     .transform(translate3d(0, 0, 0)); //reset transform and use position properties instead
     left: @menu-width;
@@ -63,20 +61,11 @@ body {
   .position(absolute, 0, 0, 0, 0);
   cursor: pointer;
 
-  @media screen and (min-width: 40em) {
-    display: none;
-  }
-
   .menu-open & {
     .transform(translate3d(@menu-width, 0, 0));
     z-index: 1;
   }
+
+  // Hide overlay on desktop
+  @media screen and (min-width: 40em) { display: none; }
 }
-
-#email-overlay {
-  .background-image(linear-gradient(top, rgba(232, 234, 241,.97), rgba(243,243,244, .97) 100%));
-  .position(absolute, 0, 0, 0, 0);;
-
-  z-index: 1;
-}
-
