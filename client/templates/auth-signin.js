@@ -1,8 +1,12 @@
 var ERRORS_KEY = 'signinErrors';
+Session.setDefault(ERRORS_KEY, {});
 
 Template.signin.helpers({
-  errors: function() {
-    return Session.get(ERRORS_KEY);
+  errorMessages: function() {
+    return _.values(Session.get(ERRORS_KEY));
+  },
+  errorClass: function(key) {
+    return Session.get(ERRORS_KEY)[key] && 'error';
   }
 });
 
@@ -13,19 +17,19 @@ Template.signin.events({
     var email = template.$('[name=email]').val();
     var password = template.$('[name=password]').val();
     
-    var errors = [];
+    var errors = {};
     if (! email)
-      errors.push('Email is required');
+      errors.email = 'Email is required';
     if (! password)
-      errors.push('Password is required');
+      errors.password = 'Password is required';
     
     Session.set(ERRORS_KEY, errors);
-    if (errors.length)
+    if (_.keys(errors).length)
       return;
     
     Meteor.loginWithPassword(email, password, function(error) {
       if (error)
-        return Session.set(ERRORS_KEY, [error.reason]);
+        return Session.set(ERRORS_KEY, {'none': error.reason});
       
       Router.go('home');
     });
