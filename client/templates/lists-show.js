@@ -12,6 +12,40 @@ Template.listsShow.helpers({
   }
 });
 
+var editList = function(list, template) {
+  Session.set(EDITING_KEY, true);
+  
+  // wait for the template to redraw based on the reactive change
+  Tracker.afterFlush(function() {
+    template.$('[data-edit-form] input[type=text]').focus();
+  });
+}
+
+var deleteList = function(list, template) {
+  var message = "Are you sure you want to delete the list " + list.name + "?";
+  if (confirm(message)) {
+    // XXX: probably use a method for this
+    Todos.find({listId: list._id}).forEach(function(todo) {
+      Todos.remove(todo._id);
+    });
+    Lists.remove(list._id);
+    Router.go('home');
+    return true;
+  } else {
+    return false;
+  }
+}
+
+var toggleListPrivacy = function(list, template) {
+  if (! Meteor.user())
+    throw "Can't change list privacy if not logged in";
+
+  if (list.userId)
+    Lists.update(list._id, {$unset: {userId: true}});
+  else
+    Lists.update(list._id, {$set: {userId: Meteor.userId()}});
+}
+
 Template.listsShow.events({
   'click [data-cancel]': function() {
     Session.set(EDITING_KEY, false);
@@ -38,35 +72,28 @@ Template.listsShow.events({
 
   'change .list-edit': function(e, template) {
     if ($(e.target).val() === 'edit') {
-      Session.set(EDITING_KEY, true);
-      
-      // wait for the template to redraw based on the reactive change
-      Tracker.afterFlush(function() {
-        template.$('[data-edit-form] input[type=text]').focus();
-      });
+      editList(this, template);
       
     } else if ($(e.target).val() === 'delete') {
-      var message = "Are you sure you want to delete the list " + this.name + "?";
-      if (confirm(message)) {
-        // XXX: probably use a method for this
-        Todos.find({listId: this._id}).forEach(function(todo) {
-          Todos.remove(todo._id);
-        });
-        Lists.remove(this._id);
-        Router.go('home');
-      } else {
+      if (! deleteList(this, template)) {
         // reset the select
         e.target.selectedIndex = 0;
       }
     } else {
-      if (! Meteor.user())
-        throw "Can't change list privacy if not logged in";
-
-      if (this.userId)
-        Lists.update(this._id, {$unset: {userId: true}});
-      else
-        Lists.update(this._id, {$set: {userId: Meteor.userId()}});
+      toggleListPrivacy(this, template);
     }
+  },
+  
+  'click [data-edit-list]': function(e, template) {
+    editList(this, template);
+  },
+  
+  'click [data-toggle-list-privacy]': function(e, template) {
+    toggleListPrivacy(this, template);
+  },
+  
+  'click [data-delete-list]': function(e, template) {
+    deleteList(this, template);
   },
 
   'submit [data-todo-new]': function(e, template) {
