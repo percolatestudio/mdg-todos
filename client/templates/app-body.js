@@ -37,12 +37,14 @@ Template.appBody.events({
     e.preventDefault();
   },
 
-  'click #menu a': function() {
-    Session.set(MENU_KEY, false);
+  'click [data-user-menu]': function(e) {
+    Session.set(USER_MENU_KEY, ! Session.get(USER_MENU_KEY));
+    // stop the menu from closing
+    e.stopImmediatePropagation();
   },
 
-  'click [data-user-menu]': function() {
-    Session.set(USER_MENU_KEY, ! Session.get(USER_MENU_KEY));
+  'click #menu a': function() {
+    Session.set(MENU_KEY, false);
   },
 
   'click [data-logout]': function() {
