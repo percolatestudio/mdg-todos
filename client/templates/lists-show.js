@@ -29,16 +29,22 @@ Template.listsShow.events({
     Session.set(EDITING_KEY, false);
   },
 
-  'submit .list-edit-form': function(e, template) {
+  'submit [data-edit-form]': function(e, template) {
     e.preventDefault();
 
     Lists.update(this._id, {$set: {name: template.$('[name=name]').val()}});
     Session.set(EDITING_KEY, false);
   },
 
-  'change .list-edit': function(e) {
+  'change .list-edit': function(e, template) {
     if ($(e.target).val() === 'edit') {
       Session.set(EDITING_KEY, true);
+      
+      // wait for the template to redraw based on the reactive change
+      Tracker.afterFlush(function() {
+        template.$('[data-edit-form] input[type=text]').focus();
+      });
+      
     } else if ($(e.target).val() === 'delete') {
       var message = "Are you sure you want to delete the list " + this.name + "?";
       if (confirm(message)) {
