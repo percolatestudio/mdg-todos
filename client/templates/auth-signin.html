@@ -9,7 +9,7 @@
     <div class="content-scrollable">
       <div class="wrapper-auth">
         <h1 class="title-auth">Sign In.</h1>
-        <p class="subtitle-auth" >Signing in allows you to view your private lists</p>
+        <p class="subtitle-auth" >Signing in allows you to view private lists</p>
 
         <form>
           {{#if errorMessages}}
@@ -19,10 +19,12 @@
               {{/each}}
             </div>
           {{/if}}
+
           <div class="input-symbol {{errorClass 'email'}}">
             <input type="email" name="email" placeholder="Your Email" />
             <span class="icon-email"></span>
           </div>
+
           <div class="input-symbol {{errorClass 'password'}}">
             <input type="password" name="password" placeholder="Password" />
             <span class="icon-lock"></span>
@@ -34,6 +36,5 @@
 
       <a href="{{pathFor 'join'}}" class="link-auth-alt">Need an account? Join Now.</a>
     </div>
-
   </div>
 </template>
