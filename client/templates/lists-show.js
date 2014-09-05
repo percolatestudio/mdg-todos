@@ -16,6 +16,18 @@ Template.listsShow.events({
   'click [data-cancel]': function() {
     Session.set(EDITING_KEY, false);
   },
+  
+  'keydown input[type=text]': function(e) {
+    // ESC
+    if (27 === e.which) {
+      e.preventDefault();
+      $(e.target).blur();
+    }
+  },
+  
+  'blur input[type=text]': function() {
+    Session.set(EDITING_KEY, false);
+  },
 
   'submit .list-edit-form': function(e, template) {
     e.preventDefault();
