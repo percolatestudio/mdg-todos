@@ -4,7 +4,7 @@ Session.setDefault(MENU_KEY, false);
 var USER_MENU_KEY = 'userMenuOpen';
 Session.setDefault(USER_MENU_KEY, false);
 
-Template.body.helpers({
+Template.appBody.helpers({
   menuOpen: function() {
     return Session.get(MENU_KEY) && 'menu-open';
   },
@@ -27,7 +27,7 @@ Template.body.helpers({
   }
 });
 
-Template.body.events({
+Template.appBody.events({
   'click [data-menu]': function() {
     Session.set(MENU_KEY, ! Session.get(MENU_KEY));
   },
