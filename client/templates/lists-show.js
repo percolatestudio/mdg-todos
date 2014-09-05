@@ -54,6 +54,9 @@ Template.listsShow.events({
         });
         Lists.remove(this._id);
         Router.go('home');
+      } else {
+        // reset the select
+        e.target.selectedIndex = 0;
       }
     } else {
       if (! Meteor.user())
