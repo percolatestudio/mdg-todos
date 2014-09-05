@@ -8,7 +8,7 @@ Template.listsShow.helpers({
   },
 
   todos: function() {
-    return Todos.find({listId: this._id});
+    return Todos.find({listId: this._id}, {sort: {createdAt : -1}});
   }
 });
 
@@ -103,7 +103,8 @@ Template.listsShow.events({
     Todos.insert({
       listId: this._id,
       text: $input.val(),
-      checked: false
+      checked: false,
+      createdAt: new Date
     });
     $input.val('');
   },
