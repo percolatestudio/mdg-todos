@@ -29,7 +29,7 @@
         {{#each lists}}
           <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}}" title="{{name}}">
             {{name}}
-            {{#if isPrivate}}
+            {{#if userId}}
               <span class="icon-lock"></span>
             {{/if}}
           </a>
