@@ -41,10 +41,12 @@
     .meta {
       overflow: hidden;
       padding-left: 3em;
+
       .title-notification {
         .title-caps;
         display: block;
       }
+
       .description {
         display: block;
       }
