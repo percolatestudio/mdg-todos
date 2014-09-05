@@ -6,4 +6,5 @@ a {
 
   &:hover { color: darken(@color-primary, 10%); }
   &:active { color: @color-well; }
+  &:focus { outline:none; } //removes FF dotted outline
 }
