@@ -4,12 +4,13 @@
     <section id="menu">
       {{#if currentUser}}
         <div class="btns-group-vertical">
-          <a data-user-menu href="#" class="btn-secondary">{{email}}
+          <a data-user-menu href="#" class="btn-secondary">
             {{#if userMenuOpen}}
               <span class="icon-arrow-up"></span>
               {{else}}
               <span class="icon-arrow-down"></span>
             {{/if}}
+            {{email}}
           </a>
           {{#if userMenuOpen}}
             <a data-logout class="btn-secondary">Logout</a>
