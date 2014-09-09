@@ -52,17 +52,9 @@ Template.appBody.events({
   },
 
   'click [data-new-list]': function() {
-    // XXX: should this be in collection.js?
-    var nextLetter = 'A', nextName = 'List ' + nextLetter;
-    while (Lists.findOne({name: nextName})) {
-      // not going to be too smart here, can go past Z
-      var nextLetter = String.fromCharCode(nextLetter.charCodeAt(0) + 1);
-      nextName = 'List ' + nextLetter;
-    }
-    var list = {name: nextName};
+    var list = {name: Lists.defaultName()};
     list._id = Lists.insert(list);
 
-    // XXX: should we do this async?
     Router.go('listsShow', list);
   }
 });

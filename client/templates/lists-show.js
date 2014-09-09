@@ -1,5 +1,4 @@
 var EDITING_KEY = 'editingList';
-// XXX: do this in route load?
 Session.setDefault(EDITING_KEY, false);
 
 Template.listsShow.helpers({
@@ -24,11 +23,12 @@ var editList = function(list, template) {
 var deleteList = function(list, template) {
   var message = "Are you sure you want to delete the list " + list.name + "?";
   if (confirm(message)) {
-    // XXX: probably use a method for this
+    // we must remove each item individually from the client
     Todos.find({listId: list._id}).forEach(function(todo) {
       Todos.remove(todo._id);
     });
     Lists.remove(list._id);
+
     Router.go('home');
     return true;
   } else {
