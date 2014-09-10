@@ -11,6 +11,10 @@ Meteor.publish('privateLists', function() {
 });
 
 Meteor.publish('todos', function(listId) {
+  console.log('todos', listId)
+  this.onStop(function() {
+    console.log('unsub todos', listId)
+  })
   check(listId, String);
   
   return Todos.find({listId: listId});

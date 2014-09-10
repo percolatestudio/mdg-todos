@@ -6,7 +6,7 @@
 standard-app-packages
 insecure
 less
-iron:router
+iron:router@1.0.0-pre0
 accounts-password
 percolatestudio:fastclick
 
