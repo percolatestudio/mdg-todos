@@ -4,6 +4,11 @@ Session.setDefault(MENU_KEY, false);
 var USER_MENU_KEY = 'userMenuOpen';
 Session.setDefault(USER_MENU_KEY, false);
 
+// XXX: Use MDG's fastclick when released
+window.addEventListener('load', function() {
+  FastClick.attach(document.body);
+}, false);
+
 Template.appBody.helpers({
   menuOpen: function() {
     return Session.get(MENU_KEY) && 'menu-open';
