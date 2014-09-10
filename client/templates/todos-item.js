@@ -15,7 +15,7 @@ Template.todosItem.events({
   },
   
   'blur input[type=text]': function(e) {
-    if (Session.equals(EDITING_KEY, self._id))
+    if (Session.equals(EDITING_KEY, this._id))
       Session.set(EDITING_KEY, null);
   },
   
