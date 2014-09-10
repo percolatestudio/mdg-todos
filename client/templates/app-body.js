@@ -48,7 +48,9 @@ Template.appBody.events({
   },
 
   'click [data-logout]': function() {
-    Meteor.logout();
+    Meteor.logout(function() {
+      Router.go('home');
+    });
   },
 
   'click [data-new-list]': function() {
