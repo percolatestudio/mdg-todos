@@ -21,6 +21,10 @@ var editList = function(list, template) {
 }
 
 var deleteList = function(list, template) {
+  // if this is the only visible list, you can't delete it
+  if (Lists.find().count() === 1)
+    return alert("Sorry, you can't delete your last list. You must have one todo list.");
+  
   var message = "Are you sure you want to delete the list " + list.name + "?";
   if (confirm(message)) {
     // we must remove each item individually from the client
