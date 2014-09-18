@@ -10,4 +10,9 @@
     color: @color-ancillary;
     margin-bottom: .5em;
   }
+
+  .subtitle-message {
+    .font-s2;
+    color: @color-medium;
+  }
 }
