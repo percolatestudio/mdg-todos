@@ -82,15 +82,12 @@ nav {
   form.list-edit-form {
     position: relative;
 
-    .input-symbol {
-      padding-right: 3em;
-      width: 100%;
-    }
-
     input[type="text"] {
       background: transparent;
       font-size: 1.125em; // 18px
-      padding-left: 2.5em; // resets default style
+      width: 100%;
+      padding-right: 3em;
+      padding-left: 1rem;
     }
   }
 

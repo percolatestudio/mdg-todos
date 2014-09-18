@@ -3,10 +3,7 @@
     <nav>
       {{#if editing}}
         <form class="list-edit-form" data-edit-form>
-          <div class="input-symbol">
-            <input type="text" name="name" value="{{name}}">
-            <span class="icon-edit"></span>
-          </div>
+          <input type="text" name="name" value="{{name}}">
           <div class="nav-group right">
             <a data-cancel href="#" class="nav-item"><span class="icon-close" title="Cancel"></span></a>
           </div>
@@ -16,7 +13,7 @@
           <a data-menu href="#" class="nav-item"><span class="icon-list-unordered" title="Show menu"></span></a>
         </div>
 
-        <h1 class="title-page"><span class="title-wrapper">{{name}}</span> <span class="count-list">{{todos.count}}</span></h1>
+        <h1 class="title-page" data-edit-list><span class="title-wrapper">{{name}}</span> <span class="count-list">{{todos.count}}</span></h1>
 
         <div class="nav-group right">
           <div class="nav-item options-mobile">
@@ -35,10 +32,6 @@
             <span class="icon-cog"></span>
           </div>
           <div class="options-web">
-            <a data-edit-list class="nav-item">
-              <span class="icon-edit" title="Edit list"></span>
-            </a>
-
             <a data-toggle-list-privacy class="nav-item">
               {{#if userId}}
                 <span class="icon-lock" title="Make list private"></span>
