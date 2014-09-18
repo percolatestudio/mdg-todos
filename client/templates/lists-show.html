@@ -38,15 +38,15 @@
             <a data-edit-list class="nav-item">
               <span class="icon-edit"></span>
             </a>
-            {{#if currentUser}}
-              <a data-toggle-list-privacy class="nav-item">
-                {{#if userId}}
-                  <span class="icon-lock"></span>
-                {{else}}
-                  <span class="icon-unlock"></span>
-                {{/if}}
-              </a>
-            {{/if}}
+
+            <a data-toggle-list-privacy class="nav-item">
+              {{#if userId}}
+                <span class="icon-lock" title="Make list private"></span>
+              {{else}}
+                <span class="icon-unlock" title="Make list public"></span>
+              {{/if}}
+            </a>
+
             <a data-delete-list class="nav-item">
               <span class="icon-trash"></span>
             </a>
