@@ -19,15 +19,12 @@
           <div class="nav-item options-mobile">
             <select class="list-edit">
               <option disabled selected>Select an action</option>
-              <option value="edit">Edit</option>
-              <option value="delete">Delete</option>
-              {{#if currentUser}}
-                {{#if userId}}
-                  <option value="public">Make Public</option>
-                {{else}}
-                  <option value="private">Make Private</option>
-                {{/if}}
+              {{#if userId}}
+                <option value="public">Make Public</option>
+              {{else}}
+                <option value="private">Make Private</option>
               {{/if}}
+              <option value="delete">Delete</option>
             </select>
             <span class="icon-cog"></span>
           </div>
