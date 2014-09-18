@@ -63,7 +63,7 @@ nav {
       display: inline-block;
       font-size: .7rem;
       line-height: 1;
-      margin-left: -1.5rem;
+      margin-left: -1.25rem;
       margin-top: -4px;
       padding: .3em .5em;
       vertical-align: middle;
