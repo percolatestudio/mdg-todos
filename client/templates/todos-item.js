@@ -10,25 +10,25 @@ Template.todosItem.helpers({
 });
 
 Template.todosItem.events({
-  'focus input[type=text]': function(e) {
+  'focus input[type=text]': function(event) {
     Session.set(EDITING_KEY, this._id);
   },
   
-  'blur input[type=text]': function(e) {
+  'blur input[type=text]': function(event) {
     if (Session.equals(EDITING_KEY, this._id))
       Session.set(EDITING_KEY, null);
   },
   
-  'keydown input[type=text]': function(e) {
+  'keydown input[type=text]': function(event) {
     // ESC or ENTER
-    if (_.include([27, 13], e.which)) {
-      e.preventDefault();
-      $(e.target).blur();
+    if (_.include([27, 13], event.which)) {
+      event.preventDefault();
+      $(event.target).blur();
     }
   },
   
-  'keyup input[type=text]': _.throttle(function(e) {
-    Todos.update(this._id, {$set: {text: $(e.target).val()}});
+  'keyup input[type=text]': _.throttle(function(event) {
+    Todos.update(this._id, {$set: {text: $(event.target).val()}});
   }, 300),
   
   // handle mousedown instead of click so we don't conflict with the above blur

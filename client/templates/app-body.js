@@ -37,15 +37,15 @@ Template.appBody.events({
     Session.set(MENU_KEY, ! Session.get(MENU_KEY));
   },
 
-  'click .content-overlay': function(e) {
+  'click .content-overlay': function(event) {
     Session.set(MENU_KEY, false);
-    e.preventDefault();
+    event.preventDefault();
   },
 
-  'click .js-user-menu': function(e) {
+  'click .js-user-menu': function(event) {
     Session.set(USER_MENU_KEY, ! Session.get(USER_MENU_KEY));
     // stop the menu from closing
-    e.stopImmediatePropagation();
+    event.stopImmediatePropagation();
   },
 
   'click #menu a': function() {

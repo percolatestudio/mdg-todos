@@ -55,11 +55,11 @@ Template.listsShow.events({
     Session.set(EDITING_KEY, false);
   },
   
-  'keydown input[type=text]': function(e) {
+  'keydown input[type=text]': function(event) {
     // ESC
-    if (27 === e.which) {
-      e.preventDefault();
-      $(e.target).blur();
+    if (27 === event.which) {
+      event.preventDefault();
+      $(event.target).blur();
     }
   },
   
@@ -67,43 +67,43 @@ Template.listsShow.events({
     Session.set(EDITING_KEY, false);
   },
 
-  'submit .js-edit-form': function(e, template) {
-    e.preventDefault();
+  'submit .js-edit-form': function(event, template) {
+    event.preventDefault();
 
     Lists.update(this._id, {$set: {name: template.$('[name=name]').val()}});
     Session.set(EDITING_KEY, false);
   },
 
-  'change .list-edit': function(e, template) {
-    if ($(e.target).val() === 'edit') {
+  'change .list-edit': function(event, template) {
+    if ($(event.target).val() === 'edit') {
       editList(this, template);
       
-    } else if ($(e.target).val() === 'delete') {
+    } else if ($(event.target).val() === 'delete') {
       if (! deleteList(this, template)) {
         // reset the select
-        e.target.selectedIndex = 0;
+        event.target.selectedIndex = 0;
       }
     } else {
       toggleListPrivacy(this, template);
     }
   },
   
-  'click .js-edit-list': function(e, template) {
+  'click .js-edit-list': function(event, template) {
     editList(this, template);
   },
   
-  'click .js-toggle-list-privacy': function(e, template) {
+  'click .js-toggle-list-privacy': function(event, template) {
     toggleListPrivacy(this, template);
   },
   
-  'click .js-delete-list': function(e, template) {
+  'click .js-delete-list': function(event, template) {
     deleteList(this, template);
   },
 
-  'submit .js-todo-new': function(e, template) {
-    e.preventDefault();
+  'submit .js-todo-new': function(event, template) {
+    event.preventDefault();
 
-    var $input = $(e.target).find('[type=text]');
+    var $input = $(event.target).find('[type=text]');
     Todos.insert({
       listId: this._id,
       text: $input.val(),
@@ -113,7 +113,7 @@ Template.listsShow.events({
     $input.val('');
   },
 
-  'change [type=checkbox]': function(e) {
-    Todos.update(this._id, {$set: {checked: $(e.target).is(':checked')}});
+  'change [type=checkbox]': function(event) {
+    Todos.update(this._id, {$set: {checked: $(event.target).is(':checked')}});
   }
 });

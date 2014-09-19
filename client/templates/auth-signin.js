@@ -11,8 +11,8 @@ Template.signin.helpers({
 });
 
 Template.signin.events({
-  'submit': function(e, template) {
-    e.preventDefault();
+  'submit': function(event, template) {
+    event.preventDefault();
     
     var email = template.$('[name=email]').val();
     var password = template.$('[name=password]').val();
