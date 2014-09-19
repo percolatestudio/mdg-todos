@@ -4,7 +4,7 @@
     <section id="menu">
       {{#if currentUser}}
         <div class="btns-group-vertical">
-          <a data-user-menu href="#" class="btn-secondary">
+          <a href="#" class="js-user-menu btn-secondary">
             {{#if userMenuOpen}}
               <span class="icon-arrow-up"></span>
               {{else}}
@@ -13,7 +13,7 @@
             {{email}}
           </a>
           {{#if userMenuOpen}}
-            <a data-logout class="btn-secondary">Logout</a>
+            <a class="js-logout btn-secondary">Logout</a>
           {{/if}}
         </div>
       {{else}}
@@ -24,7 +24,7 @@
       {{/if}}
 
       <div class="list-todos">
-        <a data-new-list class="link-list-new"><span class="icon-plus"></span>New List</a>
+        <a class="js-new-list link-list-new"><span class="icon-plus"></span>New List</a>
 
         {{#each lists}}
           <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}}" title="{{name}}">

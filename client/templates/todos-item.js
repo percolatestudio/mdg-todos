@@ -32,7 +32,7 @@ Template.todosItem.events({
   }, 300),
   
   // handle mousedown instead of click so we don't conflict with the above blur
-  'mousedown [data-delete-item]': function() {
+  'mousedown .js-delete-item': function() {
     Todos.remove(this._id);
   }
   

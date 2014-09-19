@@ -9,7 +9,7 @@
 
   .checkbox { .flex(0, 0, 44px); }
   input[type="text"] { .flex(1); }
-  [data-delete-item] { .flex(0, 0, 3rem); }
+  .delete-item { .flex(0, 0, 3rem); }
 
 
   // Style of list-item children
@@ -20,7 +20,7 @@
     &:focus { cursor: text; }
   }
 
-  [data-delete-item] {
+  .delete-item {
     color: @color-medium-rare;
     line-height: 3rem;
     text-align: center;
@@ -40,10 +40,10 @@
       text-decoration: line-through;
     }
 
-    [data-delete-item] { display: inline-block; }
+    .delete-item { display: inline-block; }
   }
 
   // Editing
-  [data-delete-item] { display: none; }
-  &.editing [data-delete-item] { display: inline-block; }
+  .delete-item { display: none; }
+  &.editing .delete-item { display: inline-block; }
 }

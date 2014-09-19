@@ -16,7 +16,7 @@ var editList = function(list, template) {
   
   // wait for the template to redraw based on the reactive change
   Tracker.afterFlush(function() {
-    template.$('[data-edit-form] input[type=text]').focus();
+    template.$('.js-edit-form input[type=text]').focus();
   });
 }
 
@@ -51,7 +51,7 @@ var toggleListPrivacy = function(list, template) {
 }
 
 Template.listsShow.events({
-  'click [data-cancel]': function() {
+  'click .js-cancel': function() {
     Session.set(EDITING_KEY, false);
   },
   
@@ -67,7 +67,7 @@ Template.listsShow.events({
     Session.set(EDITING_KEY, false);
   },
 
-  'submit [data-edit-form]': function(e, template) {
+  'submit .js-edit-form': function(e, template) {
     e.preventDefault();
 
     Lists.update(this._id, {$set: {name: template.$('[name=name]').val()}});
@@ -88,19 +88,19 @@ Template.listsShow.events({
     }
   },
   
-  'click [data-edit-list]': function(e, template) {
+  'click .js-edit-list': function(e, template) {
     editList(this, template);
   },
   
-  'click [data-toggle-list-privacy]': function(e, template) {
+  'click .js-toggle-list-privacy': function(e, template) {
     toggleListPrivacy(this, template);
   },
   
-  'click [data-delete-list]': function(e, template) {
+  'click .js-delete-list': function(e, template) {
     deleteList(this, template);
   },
 
-  'submit [data-todo-new]': function(e, template) {
+  'submit .js-todo-new': function(e, template) {
     e.preventDefault();
 
     var $input = $(e.target).find('[type=text]');
