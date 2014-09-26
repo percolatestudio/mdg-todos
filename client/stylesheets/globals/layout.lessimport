@@ -1,4 +1,4 @@
-@menu-width: 280px;
+@menu-width: 270px;
 @column: 5.55555%;
 
 body {
