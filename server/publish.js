@@ -15,3 +15,10 @@ Meteor.publish('todos', function(listId) {
   
   return Todos.find({listId: listId});
 });
+
+Meteor.publish('incompleteTodoCount', function(listId) {
+  check(listId, String);
+  
+  var todos = Todos.find({listId: listId, checked: false});
+  Counts.publish(this, listId + '-incomplete-todos', todos);
+});

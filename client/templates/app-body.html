@@ -32,6 +32,9 @@
             {{#if userId}}
               <span class="icon-lock"></span>
             {{/if}}
+            {{#if incompleteCount}}
+              <span class="count-list">{{incompleteCount}}</span>
+            {{/if}}
           </a>
         {{/each}}
 

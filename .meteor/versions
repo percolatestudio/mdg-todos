@@ -56,6 +56,7 @@ spacebars@1.0.1
 srp@1.0.0
 standard-app-packages@1.0.1
 templating@1.0.6
+tmeasday:publish-counts@0.3.1
 tracker@1.0.2
 ui@1.0.2
 underscore@1.0.0

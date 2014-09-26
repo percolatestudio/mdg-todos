@@ -8,6 +8,10 @@ Template.listsShow.helpers({
 
   todos: function() {
     return Todos.find({listId: this._id}, {sort: {createdAt : -1}});
+  },
+  
+  incompleteCount: function() {
+    return Counts.get(this._id + '-incomplete-todos');
   }
 });
 

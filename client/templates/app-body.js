@@ -24,6 +24,9 @@ Template.appBody.helpers({
   },
   connected: function() {
     return Meteor.status().connected;
+  },
+  incompleteCount: function() {
+    return Counts.get(this._id + '-incomplete-todos');
   }
 });
 
