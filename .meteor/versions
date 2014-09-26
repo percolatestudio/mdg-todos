@@ -13,6 +13,7 @@ ddp@1.0.8
 deps@1.0.2
 ejson@1.0.1
 email@1.0.2
+fastclick@1.0.0
 follower-livedata@1.0.1
 geojson-utils@1.0.0
 html-tools@1.0.0
@@ -36,7 +37,6 @@ mongo@1.0.4
 npm-bcrypt@0.7.7
 observe-sequence@1.0.2
 ordered-dict@1.0.0
-percolatestudio:fastclick@0.6.7
 random@1.0.0
 reactive-dict@1.0.1
 reactive-var@1.0.1
