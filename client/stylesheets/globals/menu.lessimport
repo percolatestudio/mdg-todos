@@ -45,8 +45,22 @@
       display: block;
       line-height: 1.5em;
       padding: .75em 2.5em;
+      position: relative;
 
       .icon-lock { margin-left: .25em; }
+    }
+
+    .count-list {
+      .transition( all 200ms ease-in );
+      background: rgba(255,255,255,.1);
+      border-radius: 1em;
+      display: inline-block;
+      float: right;
+      font-size: .7rem;
+      line-height: 1;
+      margin-top: .25rem;
+      padding: .3em .5em;
+      vertical-align: middle;
     }
 
     .link-list-new {
@@ -67,6 +81,7 @@
       &:active,
       &.active {
         color: @color-empty;
+        .count-list { background: @color-primary; }
       }
 
       [class^="icon-"],
