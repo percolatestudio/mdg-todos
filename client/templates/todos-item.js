@@ -11,7 +11,9 @@ Template.todosItem.helpers({
 
 Template.todosItem.events({
   'change [type=checkbox]': function(event) {
-    Todos.update(this._id, {$set: {checked: $(event.target).is(':checked')}});
+    var checked = $(event.target).is(':checked');
+    Todos.update(this._id, {$set: {checked: checked}});
+    Lists.update(this.listId, {$inc: {incompleteCount: checked ? -1 : 1}});
   },
   
   'focus input[type=text]': function(event) {
@@ -41,5 +43,7 @@ Template.todosItem.events({
   // handle mousedown instead of click so we don't conflict with the above blur
   'mousedown .js-delete-item': function() {
     Todos.remove(this._id);
+    if (! this.checked)
+      Lists.update(this.listId, {$inc: {incompleteCount: -1}});
   }
 });

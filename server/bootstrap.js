@@ -37,7 +37,8 @@ Meteor.startup(function () {
 
     var timestamp = (new Date()).getTime();
     _.each(data, function(list) {
-      var list_id = Lists.insert({name: list.name});
+      var list_id = Lists.insert({name: list.name,
+        incompleteCount: list.items.length});
 
       _.each(list.items, function(text) {
         Todos.insert({listId: list_id,

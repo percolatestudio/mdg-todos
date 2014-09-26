@@ -120,6 +120,7 @@ Template.listsShow.events({
       checked: false,
       createdAt: new Date
     });
+    Lists.update(this._id, {$inc: {incompleteCount: 1}});
     $input.val('');
   }
 });
