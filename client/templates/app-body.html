@@ -56,7 +56,9 @@
     <div class="content-overlay"></div>
 
     <div id="content-container">
-      {{> yield}}
+      {{#each thisArray}}
+        {{> yield}}
+      {{/each}}
     </div>
   </div>
 </template>
