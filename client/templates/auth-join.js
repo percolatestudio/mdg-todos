@@ -1,5 +1,8 @@
 var ERRORS_KEY = 'joinErrors';
-Session.setDefault(ERRORS_KEY, {});
+
+Template.join.created = function() {
+  Session.set(ERRORS_KEY, {});
+}
 
 Template.join.helpers({
   errorMessages: function() {
