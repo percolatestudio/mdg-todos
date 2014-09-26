@@ -42,7 +42,7 @@ var deleteList = function(list, template) {
 
 var toggleListPrivacy = function(list, template) {
   if (! Meteor.user())
-    throw "Can't change list privacy if not logged in";
+    return alert("Please sign in or create an account to make private lists.");
 
   if (list.userId) {
     Lists.update(list._id, {$unset: {userId: true}});
