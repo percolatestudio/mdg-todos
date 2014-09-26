@@ -4,6 +4,20 @@ Session.setDefault(MENU_KEY, false);
 var USER_MENU_KEY = 'userMenuOpen';
 Session.setDefault(USER_MENU_KEY, false);
 
+Template.appBody.rendered = function() {
+  this.hammer = new Hammer(this.$('#container'));
+  this.hammer.on('swipeleft swiperight', function(event) {
+    if (event.gesture.direction === 'right')
+      Session.set(MENU_KEY, true);
+    else if (event.gesture.direction === 'left')
+      Session.set(MENU_KEY, false);
+  });
+}
+
+Template.appBody.destroyed = function() {
+  this.hammer.destroy();
+}
+
 Template.appBody.helpers({
   menuOpen: function() {
     return Session.get(MENU_KEY) && 'menu-open';
