@@ -10,6 +10,10 @@ Template.todosItem.helpers({
 });
 
 Template.todosItem.events({
+  'change [type=checkbox]': function(event) {
+    Todos.update(this._id, {$set: {checked: $(event.target).is(':checked')}});
+  },
+  
   'focus input[type=text]': function(event) {
     Session.set(EDITING_KEY, this._id);
   },
@@ -38,5 +42,4 @@ Template.todosItem.events({
   'mousedown .js-delete-item': function() {
     Todos.remove(this._id);
   }
-  
 });

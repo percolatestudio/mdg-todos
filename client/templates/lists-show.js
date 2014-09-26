@@ -121,9 +121,5 @@ Template.listsShow.events({
       createdAt: new Date
     });
     $input.val('');
-  },
-
-  'change [type=checkbox]': function(event) {
-    Todos.update(this._id, {$set: {checked: $(event.target).is(':checked')}});
   }
 });
