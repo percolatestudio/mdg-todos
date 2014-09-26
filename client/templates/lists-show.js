@@ -21,9 +21,9 @@ var editList = function(list, template) {
 }
 
 var deleteList = function(list, template) {
-  // if this is the only visible list, you can't delete it
-  if (Lists.find().count() === 1)
-    return alert("Sorry, you can't delete your last list. You must have one todo list.");
+  // ensure the last public list cannot be deleted.
+  if (! list.userId && Lists.find({userId: {$exists: false}}).count() === 1)
+    return alert("Sorry, you cannot delete the final public list!");
   
   var message = "Are you sure you want to delete the list " + list.name + "?";
   if (confirm(message)) {
@@ -44,10 +44,16 @@ var toggleListPrivacy = function(list, template) {
   if (! Meteor.user())
     throw "Can't change list privacy if not logged in";
 
-  if (list.userId)
+  if (list.userId) {
     Lists.update(list._id, {$unset: {userId: true}});
-  else
+  } else {
+    // ensure the last public list cannot be made private
+    if (Lists.find({userId: {$exists: false}}).count() === 1)
+      return alert("Sorry, you cannot make the final public list private!");
+
     Lists.update(list._id, {$set: {userId: Meteor.userId()}});
+  }
+    
 }
 
 Template.listsShow.events({
