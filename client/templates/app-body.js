@@ -34,9 +34,10 @@ Template.appBody.destroyed = function() {
 }
 
 Template.appBody.helpers({
-  // make the yielded template to redraw whenever the _id of
-  //   the page's data context changes. This forces an animation
-  //   even though the template hasn't changed.
+  // We use #each on an array of one item so that the "list" template is
+  // removed and a new copy is added when changing lists, which is
+  // important for animation purposes. #each looks at the _id property of it's
+  // items to know when to insert a new item and when to update an old one.
   thisArray: function() {
     return [this];
   },
