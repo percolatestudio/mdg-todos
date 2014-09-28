@@ -5,14 +5,16 @@ var USER_MENU_KEY = 'userMenuOpen';
 Session.setDefault(USER_MENU_KEY, false);
 
 Template.appBody.rendered = function() {
-  // set up a swipe left / right handler
-  this.hammer = new Hammer(this.find('#container'));
-  this.hammer.on('swipeleft swiperight', function(event) {
-    if (event.gesture.direction === 'right')
-      Session.set(MENU_KEY, true);
-    else if (event.gesture.direction === 'left')
-      Session.set(MENU_KEY, false);
-  });
+  if (Meteor.isCordova) {
+    // set up a swipe left / right handler
+    this.hammer = new Hammer(this.find('#container'));
+    this.hammer.on('swipeleft swiperight', function(event) {
+      if (event.gesture.direction === 'right')
+        Session.set(MENU_KEY, true);
+      else if (event.gesture.direction === 'left')
+        Session.set(MENU_KEY, false);
+    });
+  }
   
   this.find('#content-container')._uihooks = {
     insertElement: function(node, next) {
@@ -30,7 +32,8 @@ Template.appBody.rendered = function() {
 }
 
 Template.appBody.destroyed = function() {
-  this.hammer.destroy();
+  if (Meteor.isCordova)
+    this.hammer.destroy();
 }
 
 Template.appBody.helpers({
