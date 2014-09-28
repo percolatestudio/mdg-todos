@@ -34,6 +34,12 @@ Template.appBody.destroyed = function() {
 }
 
 Template.appBody.helpers({
+  // make the yielded template to redraw whenever the _id of
+  //   the page's data context changes. This forces an animation
+  //   even though the template hasn't changed.
+  thisArray: function() {
+    return [this];
+  },
   menuOpen: function() {
     return Session.get(MENU_KEY) && 'menu-open';
   },
