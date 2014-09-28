@@ -1,6 +1,22 @@
 var EDITING_KEY = 'editingList';
 Session.setDefault(EDITING_KEY, false);
 
+Template.listsShow.rendered = function() {
+ this.find('.js-title-nav')._uihooks = {
+   insertElement: function(node, next) {
+     $(node)
+       .hide()
+       .insertBefore(next)
+       .fadeIn();
+   },
+   removeElement: function(node) {
+     $(node).fadeOut(function() {
+       this.remove();
+     });
+   }
+ }
+}
+
 Template.listsShow.helpers({
   editing: function() {
     return Session.get(EDITING_KEY);
