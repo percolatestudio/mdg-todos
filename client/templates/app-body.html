@@ -28,10 +28,10 @@
 
         {{#each lists}}
           <a href="{{pathFor 'listsShow'}}" class="list-todo {{activeListClass}}" title="{{name}}">
-            {{name}}
             {{#if userId}}
               <span class="icon-lock"></span>
             {{/if}}
+            {{name}}
             {{#if incompleteCount}}
               <span class="count-list">{{incompleteCount}}</span>
             {{/if}}
