@@ -9,10 +9,11 @@ Template.appBody.rendered = function() {
     // set up a swipe left / right handler
     this.hammer = new Hammer(this.find('#container'));
     this.hammer.on('swipeleft swiperight', function(event) {
-      if (event.gesture.direction === 'right')
+      if (event.gesture.direction === 'right') {
         Session.set(MENU_KEY, true);
-      else if (event.gesture.direction === 'left')
+      } else if (event.gesture.direction === 'left') {
         Session.set(MENU_KEY, false);
+      }
     });
   }
   
@@ -28,13 +29,14 @@ Template.appBody.rendered = function() {
         this.remove();
       });
     }
-  }
-}
+  };
+};
 
 Template.appBody.destroyed = function() {
-  if (Meteor.isCordova)
+  if (Meteor.isCordova) {
     this.hammer.destroy();
-}
+  }
+};
 
 Template.appBody.helpers({
   // We use #each on an array of one item so that the "list" template is
@@ -57,9 +59,10 @@ Template.appBody.helpers({
     return Lists.find();
   },
   activeListClass: function() {
-    var current = Router.current()
-    if (current.route.name === 'listsShow' && current.params._id === this._id)
+    var current = Router.current();
+    if (current.route.name === 'listsShow' && current.params._id === this._id) {
       return 'active';
+    }
   },
   connected: function() {
     return Meteor.status().connected;
@@ -91,8 +94,9 @@ Template.appBody.events({
     
     // if we are on a private list, we'll need to go to a public one
     var current = Router.current();
-    if (current.route.name === 'listsShow' && current.data().userId)
+    if (current.route.name === 'listsShow' && current.data().userId) {
       Router.go('listsShow', Lists.findOne({userId: {$exists: false}}));
+    }
   },
 
   'click .js-new-list': function() {

@@ -14,8 +14,8 @@ Template.listsShow.rendered = function() {
         this.remove();
       });
     }
-  }
-}
+  };
+};
 
 Template.listsShow.helpers({
   editing: function() {
@@ -34,12 +34,13 @@ var editList = function(list, template) {
   Tracker.afterFlush(function() {
     template.$('.js-edit-form input[type=text]').focus();
   });
-}
+};
 
-var deleteList = function(list, template) {
+var deleteList = function(list) {
   // ensure the last public list cannot be deleted.
-  if (! list.userId && Lists.find({userId: {$exists: false}}).count() === 1)
+  if (! list.userId && Lists.find({userId: {$exists: false}}).count() === 1) {
     return alert("Sorry, you cannot delete the final public list!");
+  }
   
   var message = "Are you sure you want to delete the list " + list.name + "?";
   if (confirm(message)) {
@@ -54,23 +55,24 @@ var deleteList = function(list, template) {
   } else {
     return false;
   }
-}
+};
 
-var toggleListPrivacy = function(list, template) {
-  if (! Meteor.user())
+var toggleListPrivacy = function(list) {
+  if (! Meteor.user()) {
     return alert("Please sign in or create an account to make private lists.");
+  }
 
   if (list.userId) {
     Lists.update(list._id, {$unset: {userId: true}});
   } else {
     // ensure the last public list cannot be made private
-    if (Lists.find({userId: {$exists: false}}).count() === 1)
+    if (Lists.find({userId: {$exists: false}}).count() === 1) {
       return alert("Sorry, you cannot make the final public list private!");
+    }
 
     Lists.update(list._id, {$set: {userId: Meteor.userId()}});
   }
-    
-}
+};
 
 Template.listsShow.events({
   'click .js-cancel': function() {
@@ -126,7 +128,7 @@ Template.listsShow.events({
     template.$('.js-todo-new input').focus();
   },
 
-  'submit .js-todo-new': function(event, template) {
+  'submit .js-todo-new': function(event) {
     event.preventDefault();
 
     var $input = $(event.target).find('[type=text]');
@@ -134,7 +136,7 @@ Template.listsShow.events({
       listId: this._id,
       text: $input.val(),
       checked: false,
-      createdAt: new Date
+      createdAt: new Date()
     });
     Lists.update(this._id, {$inc: {incompleteCount: 1}});
     $input.val('');
