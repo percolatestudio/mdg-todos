@@ -22,6 +22,10 @@ Template.listsShow.helpers({
     return Session.get(EDITING_KEY);
   },
 
+  todosReady: function() {
+    return Router.current().todosHandle.ready();
+  },
+
   todos: function() {
     return Todos.find({listId: this._id}, {sort: {createdAt : -1}});
   }

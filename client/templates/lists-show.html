@@ -52,14 +52,20 @@
 
 
     <div class="content-scrollable list-items">
-      {{#each todos}}
-        {{> todosItem}}
+      {{#if todosReady}}
+        {{#each todos}}
+          {{> todosItem}}
+        {{else}}
+          <div class="wrapper-message">
+            <div class="title-message">No tasks here</div>
+            <div class="subtitle-message">Add new tasks using the field above</div>
+          </div>
+        {{/each}}
       {{else}}
-        <div class="wrapper-message">
-          <div class="title-message">No tasks here</div>
-          <div class="subtitle-message">Add new tasks using the field above</div>
-        </div>
-      {{/each}}
+          <div class="wrapper-message">
+            <div class="title-message">Loading tasks...</div>
+          </div>
+      {{/if}}
     </div>
   </div>
 </template>
