@@ -49,6 +49,9 @@ Template.appBody.helpers({
   menuOpen: function() {
     return Session.get(MENU_KEY) && 'menu-open';
   },
+  cordova: function() {
+    return Meteor.isCordova && 'cordova';
+  },
   email: function() {
     return Meteor.user().emails[0].address;
   },
