@@ -28,22 +28,10 @@ App.launchScreens({
   'ipad_portrait': 'resources/splash/Default-Portrait~ipad.png',
   'ipad_portrait_2x': 'resources/splash/Default-Portrait@2x~ipad.png',
   'ipad_landscape': 'resources/splash/Default-Landscape~ipad.png',
-  'ipad_landscape_2x': 'resources/splash/Default-Landscape@2x~ipad.png',
-
-  // Android
-  'android_ldpi_portrait': 'resources/splash/Default-Portrait~ipad.png',
-  'android_ldpi_landscape': 'resources/splash/Default-Landscape~ipad.png',
-  'android_mdpi_portrait': 'resources/splash/Default-Portrait~ipad.png',
-  'android_mdpi_landscape': 'resources/splash/Default-Landscape~ipad.png',
-  'android_hdpi_portrait': 'resources/splash/Default-Portrait~ipad.png',
-  'android_hdpi_landscape': 'resources/splash/Default-Landscape~ipad.png',
-  'android_xhdpi_portrait': 'resources/splash/Default-Portrait~ipad.png',
-  'android_xhdpi_landscape': 'resources/splash/Default-Landscape~ipad.png'
+  'ipad_landscape_2x': 'resources/splash/Default-Landscape@2x~ipad.png'
 });
 
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#000000');
-
-// Enable splash screen on Android
 App.setPreference('SplashScreen', 'screen');
 
