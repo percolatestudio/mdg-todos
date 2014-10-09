@@ -11,18 +11,13 @@ var CONNECTION_ISSUE_TIMEOUT = 1000;
 
 Meteor.startup(function () {
   // set up a swipe left / right handler
-  var hammer = new Hammer.Manager(document.body);
-
-  hammer.add(new Hammer.Swipe({
-    velocity: 0.1
-  }));
-
-  hammer.on('swipeleft', function () {
-    Session.set(MENU_KEY, false);
-  });
-
-  hammer.on('swiperight', function () {
-    Session.set(MENU_KEY, true);
+  $(document.body).touchwipe({
+    wipeLeft: function () {
+      Session.set(MENU_KEY, false);
+    },
+    wipeRight: function () {
+      Session.set(MENU_KEY, true);
+    }
   });
 
   // Don't show the connection error box unless we haven't connected within
@@ -46,12 +41,6 @@ Template.appBody.rendered = function() {
       });
     }
   };
-};
-
-Template.appBody.destroyed = function() {
-  if (Meteor.isCordova) {
-    this.hammer.destroy();
-  }
 };
 
 Template.appBody.helpers({
