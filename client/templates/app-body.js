@@ -7,15 +7,11 @@ Session.setDefault(USER_MENU_KEY, false);
 var SHOW_CONNECTION_ISSUE_KEY = 'showConnectionIssue';
 Session.setDefault(SHOW_CONNECTION_ISSUE_KEY, false);
 
-var CONNECTION_ISSUE_TIMEOUT = 1000;
+var CONNECTION_ISSUE_TIMEOUT = 5000;
 
 Meteor.startup(function () {
   // set up a swipe left / right handler
-  var hammer = new Hammer.Manager(document.body);
-
-  hammer.add(new Hammer.Swipe({
-    velocity: 0.1
-  }));
+  var hammer = new Hammer(document.body);
 
   hammer.on('swipeleft', function () {
     Session.set(MENU_KEY, false);
