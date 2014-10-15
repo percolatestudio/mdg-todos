@@ -17,12 +17,17 @@ Meteor.startup(function () {
     },
     wipeRight: function () {
       Session.set(MENU_KEY, true);
-    }
+    },
+    preventDefaultEvents: false
   });
 
-  // Don't show the connection error box unless we haven't connected within
-  // 1 second of app starting
+  // Only show the connection error box if it has been 5 seconds since
+  // the app started
   setTimeout(function () {
+    // Launch screen handle created in lib/router.js
+    dataReadyHold.release();
+
+    // Show the connection error box
     Session.set(SHOW_CONNECTION_ISSUE_KEY, true);
   }, CONNECTION_ISSUE_TIMEOUT);
 });
@@ -33,11 +38,13 @@ Template.appBody.rendered = function() {
       $(node)
         .hide()
         .insertBefore(next)
-        .fadeIn();
+        .fadeIn(function () {
+          listFadeInHold.release();
+        });
     },
     removeElement: function(node) {
       $(node).fadeOut(function() {
-        this.remove();
+        $(this).remove();
       });
     }
   };
@@ -57,8 +64,9 @@ Template.appBody.helpers({
   cordova: function() {
     return Meteor.isCordova && 'cordova';
   },
-  email: function() {
-    return Meteor.user().emails[0].address;
+  emailLocalPart: function() {
+    var email = Meteor.user().emails[0].address;
+    return email.substring(0, email.indexOf('@'));
   },
   userMenuOpen: function() {
     return Session.get(USER_MENU_KEY);
